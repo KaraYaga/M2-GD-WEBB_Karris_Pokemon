@@ -23,9 +23,10 @@ Pokemon::Pokemon(string name, string description, PokemonTypes pokeType, int lev
 //Pokemon all DEFAULT VALUES
 Pokemon::Pokemon()
 {
-    mName = "name";
-    mDescription = "description";
-    mPokemonType = PokemonTypes::NORMAL;
+    mName = "Fluffalump\n";
+    mDescription = "A small pink fluff, scientists are unsure what Fluffalumps is made of.\nSome believe it's fur, other's believe it's a mist. What is known is getting your head stuck in a Fluffalump's body is lethal!\nThe Fluffalump has two wings that hover beside it's strange body, and they are well known for their melodious humming sounds.\nWhen several Fluffalumps are together it sounds like a chorus of notes humming together! Scientists belive Fluffalumps use this to attract mates, and identify one another, so cute!\n";
+    mPokemonType = PokemonTypes::FAIRY;
+    mPokemonType = PokemonTypes::POISON;
     mLevel = 1;
     mLife = 10;
 }
@@ -41,5 +42,5 @@ int Pokemon::getLevel() { return mLevel; }
 
 int Pokemon::getLife() { return mLife; }
 
-void Pokemon::setAbility(string newAbility1, string newAbility2, string newAbility3, string newABility4) { mAbility1 = newAbility1; mAbility2 = newAbility2; mAbility3 = newAbility3; mAbility4 = newAbility4; }
+//void Pokemon::setAbility(string newAbility1, string newAbility2, string newAbility3, string newABility4) { mAbility1 = newAbility1; mAbility2 = newAbility2; mAbility3 = newAbility3; mAbility4 = newAbility4; }
 

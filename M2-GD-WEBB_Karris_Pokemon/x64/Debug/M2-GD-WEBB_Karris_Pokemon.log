@@ -1,0 +1,11 @@
+﻿  M2-GD-WEBB_Karris_Pokemon.cpp
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\PokemonTypes.h(25,4): error C2065: 'cout': undeclared identifier
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\PokemonTypes.h(45,5): error C2065: 'cin': undeclared identifier
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\PokemonTypes.h(49,9): error C2065: 'cout': undeclared identifier
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\PokemonTypes.h(50,9): error C2065: 'cin': undeclared identifier
+  Pokemon.cpp
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\PokemonTypes.h(25,4): error C2065: 'cout': undeclared identifier
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\PokemonTypes.h(45,5): error C2065: 'cin': undeclared identifier
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\PokemonTypes.h(49,9): error C2065: 'cout': undeclared identifier
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\PokemonTypes.h(50,9): error C2065: 'cin': undeclared identifier
+  Generating Code...

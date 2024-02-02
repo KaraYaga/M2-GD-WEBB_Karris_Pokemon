@@ -12,17 +12,19 @@ int main()
 
     if (answer == "Starter") 
     {
-        Pokemon defaultPoke();
+        Pokemon defaultPokemon();
     }
     if (answer == "Custom") 
     {
         Pokemon custom;
 
-        cout << "What would you like to name your Pokemon?";
+        cout << "What would you like to name your Pokemon?\n";
         string name = "";
 
-        cout << "Please describe your Pokemon so we may update the Pokedex!";
+        cout << "Please describe your Pokemon so we may update the Pokedex!\n";
         string description = "";
+
+        PokemonTypes type = choosePokemonType();
 
         custom = Pokemon(name, description, PokemonTypes::DEFAULT, 1, 10);
     }
