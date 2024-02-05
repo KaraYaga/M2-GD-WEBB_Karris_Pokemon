@@ -1,21 +1,22 @@
 #pragma once
 #include <iostream>
+#include "Trainer.cpp";
 using namespace std;
 
 class Trainer
 {
 private:
-	string mName;
-	string mLastName;
+	string mTrainerName;
+	string mTrainerLastName;
 	string mCatchphrase;
 	int mMoney;
-	int mLife;
+	int mTrainerLife;
 	int mPokeballs;
 
 	string Pokemon[6];
 
 public:
-	Trainer(string mName, string mLastName, string mCatchphrase, int mMoney, int mLife, int mPokeballs);
+	Trainer(string name, string lastname, string catchphrase);
 	~Trainer();
 
 	string getTrainerName();

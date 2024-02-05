@@ -12,17 +12,7 @@ Pokemon::Pokemon(string name, string description, PokemonTypes pokeType)
     mLife = 10;
 }
 
-//CUSTOM VALUES
-Pokemon::Pokemon(string name, string description, PokemonTypes pokeType, int level, int life)
-{
-    mName = name;
-    mDescription = description;
-    mPokemonType = PokemonTypes::NORMAL;
-    mLevel = level;
-    mLife = life;
-}
-
-//DEFAULT VALUES
+//LEVEL 1 DEFAULT VALUES
 Pokemon::Pokemon()
 {
     mName = "Fluffalump\n";

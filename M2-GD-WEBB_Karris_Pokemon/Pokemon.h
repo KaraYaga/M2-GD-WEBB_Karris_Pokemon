@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "PokemonTypes.h"
+#include "Pokemon.cpp";
 using namespace std;
 
 class Pokemon
@@ -15,8 +16,7 @@ private:
 	int mLevel;
 
 public:
-	Pokemon(string mName, string mDescription);
-	Pokemon(string name, string description, PokemonTypes pokeType, int level, int life);
+	Pokemon(string mName, string mDescription, PokemonTypes pokeType);
 	Pokemon();
 	~Pokemon();
 
