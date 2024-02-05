@@ -55,8 +55,3 @@ PokemonTypes choosePokemonType() {
     // Convert user input to enum type
     return static_cast<PokemonTypes>(choice - 1);
 }
-
-
-//To use the value of an element of TYPES I use :
-//MySpace.FIRST;		//0
-//MySpace.THIRD;		//2

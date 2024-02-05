@@ -129,10 +129,12 @@
   <ItemGroup>
     <ClCompile Include="M2-GD-WEBB_Karris_Pokemon.cpp" />
     <ClCompile Include="Pokemon.cpp" />
+    <ClCompile Include="Trainer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="PokemonTypes.h" />
+    <ClInclude Include="Trainer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

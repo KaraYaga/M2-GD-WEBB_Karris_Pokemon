@@ -2,25 +2,27 @@
 #include <iostream>
 using namespace std;
 
-//Pokemon only choose Name and Description
-Pokemon::Pokemon(string name, string description)
-{
-    mName = name;
-    mDescription = description;
-    mPokemonType = PokemonTypes::NORMAL;
-    mLevel = 1;
-    mLife = 10;
-}
-//Pokemon all CUSTOM VALUES
-Pokemon::Pokemon(string name, string description, PokemonTypes pokeType, int level, int life) 
+//LEVEL 1 CUSTOM VALUES
+Pokemon::Pokemon(string name, string description, PokemonTypes pokeType)
 {
     mName = name;
     mDescription = description;
     mPokemonType = pokeType;
+    mLevel = 1;
+    mLife = 10;
+}
+
+//CUSTOM VALUES
+Pokemon::Pokemon(string name, string description, PokemonTypes pokeType, int level, int life)
+{
+    mName = name;
+    mDescription = description;
+    mPokemonType = PokemonTypes::NORMAL;
     mLevel = level;
     mLife = life;
 }
-//Pokemon all DEFAULT VALUES
+
+//DEFAULT VALUES
 Pokemon::Pokemon()
 {
     mName = "Fluffalump\n";
@@ -30,6 +32,7 @@ Pokemon::Pokemon()
     mLevel = 1;
     mLife = 10;
 }
+
 Pokemon::~Pokemon() {}
 
 string Pokemon::getPokemonName() { return mName; }
