@@ -17,7 +17,7 @@ private:
 
 public:
 	Trainer(string name, string lastname, string catchphrase);
-	~Trainer();
+	Trainer();
 
 	string getTrainerName();
 	string getCatchphrase();

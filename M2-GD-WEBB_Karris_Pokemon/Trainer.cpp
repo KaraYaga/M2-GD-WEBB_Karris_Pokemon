@@ -18,7 +18,7 @@ Trainer::Trainer()
 {
     mTrainerName = "";
     mTrainerLastName = "";
-    mCatchphrase = "";
+    mCatchphrase = "The three F's of Pokemon! Feeding! Fighting! . . . Friends!";
     mTrainerLife = 30;
     mMoney = 50;
     mPokeballs = 5;
@@ -34,4 +34,4 @@ int Trainer::getMoney() { return mMoney; }
 
 int Trainer::getLife() { return mTrainerLife; }
 
-void Trainer::setPokemon(string pokemone[6]);
+//void Trainer::setPokemon(string pokemone[6]);
