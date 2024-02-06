@@ -3,12 +3,19 @@
 //ABILITIES LIST
 
 Abilities::Abilities() {
-    mAbilities[0] = "Ability 1";
-    mAbilities[1] = "Ability 2";
-    mAbilities[2] = "Ability 3";
-    mAbilities[3] = "Ability 4";
+    mAbility[0] = "Ability 1";
+    mAbility[1] = "Ability 2";
+    mAbility[2] = "Ability 3";
+    mAbility[3] = "Ability 4";
 }
 
-string* Abilities::addAbility() {
-    return mAbilities;
-}
+void addAbility(Abilities ability)
+{
+    // Check if there's room to ADD ABILITY
+    for (int i = 0; i < 4; ++i) {
+        if (mAbility[i].empty()) {
+            mAbility[i] = ability;
+            return;
+        }
+    }
+};

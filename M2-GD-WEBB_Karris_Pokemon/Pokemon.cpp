@@ -34,13 +34,4 @@ int Pokemon::getLevel() { return mLevel; }
 
 int Pokemon::getLife() { return mLife; }
 
-void Pokemon::addAbility(Abilities ability)
-{
-    // Check if there's room to ADD ABILITY
-    for (int i = 0; i < 4; ++i) {
-        if (mAbilities[i].empty()) {
-            mAbilities[i] = ability;
-            return;
-        }
-    }
-};
+Abilities::addAbility;

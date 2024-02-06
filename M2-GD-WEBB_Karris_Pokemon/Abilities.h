@@ -2,7 +2,12 @@
 #include <string>
 using namespace std;
 
-Pokemon::getAbilities() 
+class Abilities 
 {
-    return mAbilities;
-}
+private:
+    Abilities mAbility[4];
+
+public:
+    Abilities();
+    void addAbility();
+};
