@@ -18,7 +18,7 @@ int main()
 
     cout << "Oh! " << firstname << " you're part of the " << lastname << " family, they're a legacy in the FNAF! Welcome, welcome!\nDid you want to register a new Catchphrase or use your family's?\n\n(New/Family)";
     string phraseAnswer;
-
+    Trainer player;
     cin >> phraseAnswer;
 
     if (phraseAnswer == "New")
@@ -26,13 +26,13 @@ int main()
         cout << "Please enter your new Catchphrase " << firstname << " " << lastname << "!\n\n";
         string catchphrase;
         cin >> catchphrase;
-
+        player = Trainer(firstname, lastname, catchphrase);
         cout << "Wonderful choice!\n\n";
     }
-    if (phraseAnswer == "Family")
+    else 
     {
-        Trainer catchphrase = Trainer();
-        cout << "Wonderful choice : " << catchphrase.getCatchphrase() << "! Such a good phrase!\n\n";
+        player = Trainer(firstname, lastname);
+        cout << "Wonderful choice : " << player.getCatchphrase() << "! Such a good phrase!\n\n";
     }
 
 
@@ -70,7 +70,7 @@ int main()
     cout << "Now that we have registered you and your Pokemon you are set to battle other Trainers and their Pokemon!\n\nEvery Trainer may have up to 6 Pokemon in their team so, we have provided you with 5 standard issue Pokeballs to be able to catch wild ones!\nPlease respect the Pokemon Nature and Health Preservation Act when catching wild Pokemon, and if your Pokemon become injured in battle you can let them rest, give them medicine, or come back here for medical treatment.\n\nTake good care of your Pokemon, and don't forget to visit from time to time!\n\n";
 
 //ADVENTURING
-    if (int mPokeballs > 0) 
+    if (player.getPokeballs() > 0)
     {
         cout << "What would you like to do " << firstname << "? You can challenge Wild pokemon to try and catch them using your Pokeballs, or fight another Trainer?\n\n(Wild, Trainer)";
         string action;
@@ -89,7 +89,7 @@ int main()
         }
     }
 
-    else (mPokeballs == 0) 
+    else 
     {
         cout << "It looks like you're out of Pokeballs! Why don't you challenge a Trainer to a battle try win some Pokeballs!";
     }

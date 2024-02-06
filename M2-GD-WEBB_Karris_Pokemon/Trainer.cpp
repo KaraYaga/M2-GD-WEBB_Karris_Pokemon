@@ -12,6 +12,16 @@ Trainer::Trainer(string firstname, string lastname, string catchphrase)
     mMoney = 50;
     mPokeballs = 5;
 }
+//DEFAULT CATCHPHRASE
+Trainer::Trainer(string firstname, string lastname)
+{
+    mTrainerName = firstname;
+    mTrainerLastName = lastname;
+    mCatchphrase = "The three F's of Pokemon! Feeding! Fighting! . . . Friends!";
+    mTrainerLife = 30;
+    mMoney = 50;
+    mPokeballs = 5;
+}
 
 //DEFAULT VALUES
 Trainer::Trainer()
@@ -28,15 +38,21 @@ Trainer::~Trainer() {}
 
 string Trainer::getTrainerName() { return mTrainerName, mTrainerLastName; }
 
-string Trainer::getCatchphrase() { return mCatchphrase; }
-
-int Trainer::getMoney() { return mMoney; }
-
 string Trainer::introduceSelf()
 {
     return "I'm Trainer " + mTrainerName + " " + mTrainerLastName + " and I'm here to : " + getCatchphrase() + "!\n";
 }
 
+//CATCHPHRASE
+string Trainer::getCatchphrase() { return mCatchphrase; }
+void Trainer::setCatchphrase(string newCatchphrase) 
+{
+    mCatchphrase = newCatchphrase;
+}
+
+int Trainer::getMoney() { return mMoney; }
+int Trainer::getLife() { return mTrainerLife; }
+int Trainer::getPokeballs() { return mPokeballs; }
 int Trainer::getLife() { return mTrainerLife; }
 
 //void Trainer::setPokemon(string pokemone[6]);

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "PokemonTypes.h"
+#include "Abilities.h"
 using namespace std;
 
 class Pokemon
@@ -9,7 +10,7 @@ private:
 	string mName;
 	string mDescription;
 	PokemonTypes mPokemonType;
-	string Abilities[4];
+	Abilities mAbilities[4];
 
 	int mLife;
 	int mLevel;
@@ -27,7 +28,7 @@ public:
 	int getLevel();
 	int getLife();
 
-	void setAbilities(string newAbility1, string newAbility2, string newAbility3, string newAbility4);
+	void addAbility(Abilities abilitiy);
 
 };
 
