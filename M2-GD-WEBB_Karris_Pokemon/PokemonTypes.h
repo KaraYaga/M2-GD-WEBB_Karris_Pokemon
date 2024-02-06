@@ -23,7 +23,7 @@ enum class PokemonTypes {
 
 };
 
-PokemonTypes choosePokemonType() {
+inline PokemonTypes choosePokemonType() {
    cout << "Please choose a Type for your Pokemon! Here are all available types:\n"
         << "1. NORMAL\n"
         << "2. FAIRY\n"

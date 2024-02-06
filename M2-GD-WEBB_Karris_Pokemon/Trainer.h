@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "Trainer.cpp";
 using namespace std;
 
 class Trainer
@@ -18,9 +17,12 @@ private:
 public:
 	Trainer(string name, string lastname, string catchphrase);
 	Trainer();
+	~Trainer();
 
 	string getTrainerName();
 	string getCatchphrase();
+	string introduceSelf();
+
 	int getMoney();
 	int getLife();
 

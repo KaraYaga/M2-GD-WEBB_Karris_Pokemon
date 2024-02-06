@@ -32,6 +32,11 @@ string Trainer::getCatchphrase() { return mCatchphrase; }
 
 int Trainer::getMoney() { return mMoney; }
 
+string Trainer::introduceSelf()
+{
+    return "I'm Trainer " + mTrainerName + " " + mTrainerLastName + " and I'm here to : " + getCatchphrase() + "!\n";
+}
+
 int Trainer::getLife() { return mTrainerLife; }
 
 //void Trainer::setPokemon(string pokemone[6]);

@@ -1,6 +1,5 @@
 #include "Pokemon.h"
 #include <iostream>
-using namespace std;
 
 //LEVEL 1 CUSTOM VALUES
 Pokemon::Pokemon(string name, string description, PokemonTypes pokeType)
@@ -15,8 +14,8 @@ Pokemon::Pokemon(string name, string description, PokemonTypes pokeType)
 //LEVEL 1 DEFAULT VALUES
 Pokemon::Pokemon()
 {
-    mName = "Fluffalump\n";
-    mDescription = "A small pink fluff, scientists are unsure what Fluffalumps is made of.\nSome believe it's fur, other's believe it's a mist. What is known is getting your head stuck in a Fluffalump's body is lethal!\nThe Fluffalump has two wings that hover beside it's strange body, and they are well known for their melodious humming sounds.\nWhen several Fluffalumps are together it sounds like a chorus of notes humming together! Scientists belive Fluffalumps use this to attract mates, and identify one another, so cute!\n";
+    mName = "Fluffalump";
+    mDescription = "A small pink fluff, scientists are unsure what Fluffalumps are made of.\nSome believe it's fur, other's believe it's a mist. What is known is getting your head stuck in a Fluffalump's body is lethal!\nThe Fluffalump has two wings that hover beside it's strange body, and they are well known for their melodious humming sounds.\nWhen several Fluffalumps are together it sounds like a chorus of notes humming together!\nScientists belive Fluffalumps use this to attract mates, and identify one another, so cute!\n\n";
     mPokemonType = PokemonTypes::FAIRY;
     mPokemonType = PokemonTypes::POISON;
     mLevel = 1;
