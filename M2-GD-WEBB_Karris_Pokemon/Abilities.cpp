@@ -10,10 +10,12 @@ Ability::Ability()
 };
 
 
-Ability::Ability(string name, string description, int dmg) {
+Ability::Ability(string name, string description, int dmg, int uses)
+{
     mName = name;
     mDescription = description;
     mDamage = dmg;
+    mUses = uses;
 }
 
 string Ability::GetName()

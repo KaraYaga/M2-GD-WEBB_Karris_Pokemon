@@ -16,6 +16,13 @@ private:
 
 	vector <Pokemon> mTeam;
 
+	bool canAdventure = getPokeballs() > 0;
+	bool canBattle = !bigGuyDefeated || !bombasticaDefeated || !phoenicaDefeated;
+
+	bool bigGuyDefeated = false;
+	bool bombasticaDefeated = false;
+	bool phoenicaDefeated = false;
+
 public:
 	Trainer(string name, string lastname, string catchphrase);
 	Trainer(string name, string lastname);
@@ -32,6 +39,7 @@ public:
 	int getPokeballs();
 
 	vector <Pokemon> displayTeam();
+
 
 };
 
