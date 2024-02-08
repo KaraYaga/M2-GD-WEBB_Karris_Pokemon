@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Pokemon.h"
+#include <vector>
 using namespace std;
 
 class Trainer
@@ -13,7 +14,7 @@ private:
 	int mTrainerLife;
 	int mPokeballs;
 
-	Pokemon Team[6];
+	vector <Pokemon> mTeam;
 
 public:
 	Trainer(string name, string lastname, string catchphrase);
@@ -30,8 +31,7 @@ public:
 	int getLife();
 	int getPokeballs();
 
-	void chooseTeam();
-	void displayTeam();
+	vector <Pokemon> displayTeam();
 
 };
 

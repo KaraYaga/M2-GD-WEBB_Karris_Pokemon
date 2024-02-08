@@ -56,11 +56,16 @@ int main()
         defaultPokemon.chooseAbilities();
         cout << "Wonderful! Here are " << defaultPokemon.getPokemonName() << "'s 4 Abilities!\n";
         defaultPokemon.DisplayAbilities();
+        
+        if (player.displayTeam().size() < 6)
+        {
+            player.displayTeam().push_back(defaultPokemon);
+        }
     }
 
     if (pokeAnswer == "Custom")
     {
-        Pokemon custom;
+        Pokemon customPokemon;
 
         cout << "What would you like to name your Pokemon?\n\n";
         string name;
@@ -72,15 +77,20 @@ int main()
 
         PokemonTypes type = choosePokemonType();
 
-        custom = Pokemon(name, description, type);
+        customPokemon = Pokemon(name, description, type);
 
-        cout << "Your pokemon " << custom.getPokemonName() << "\n" << " has been registered in the Pokedex! Here is a recap :\n" << custom.getPokemonDescription() << "\n\n";
+        cout << "Your pokemon " << customPokemon.getPokemonName() << "\n" << " has been registered in the Pokedex! Here is a recap :\n" << customPokemon.getPokemonDescription() << "\n\n";
 
         //CHOOSE ABILITIES
-        cout << "Now let's get " << custom.getPokemonName() << " ready to fight!\n";
-        custom.chooseAbilities();
-        cout << "Wonderful! Here are " << custom.getPokemonName() << "'s 4 Abilities!\n";
-        custom.DisplayAbilities();
+        cout << "Now let's get " << customPokemon.getPokemonName() << " ready to fight!\n";
+        customPokemon.chooseAbilities();
+        cout << "Wonderful! Here are " << customPokemon.getPokemonName() << "'s 4 Abilities!\n";
+        customPokemon.DisplayAbilities();
+
+        if (player.displayTeam().size() < 6) 
+        {
+            player.displayTeam().push_back(customPokemon);
+        }
 
     }
 
