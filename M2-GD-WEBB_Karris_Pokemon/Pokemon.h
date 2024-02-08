@@ -10,7 +10,7 @@ private:
 	string mName;
 	string mDescription;
 	PokemonTypes mPokemonType;
-	Abilities mAbility[4];
+	Ability mAbility[4];
 
 	int mLife;
 	int mLevel;
@@ -27,6 +27,9 @@ public:
 	PokemonTypes getPokemonType();
 	int getLevel();
 	int getLife();
+
+	void chooseAbilities();
+	void DisplayAbilities();
 
 };
 

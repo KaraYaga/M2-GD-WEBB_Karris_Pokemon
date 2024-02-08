@@ -51,7 +51,6 @@ void Trainer::setCatchphrase(string newCatchphrase)
 }
 
 int Trainer::getMoney() { return mMoney; }
-int Trainer::getLife() { return mTrainerLife; }
 int Trainer::getPokeballs() { return mPokeballs; }
 int Trainer::getLife() { return mTrainerLife; }
 

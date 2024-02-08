@@ -2,12 +2,18 @@
 #include <string>
 using namespace std;
 
-class Abilities 
+class Ability 
 {
 private:
-    Abilities mAbility[4];
+    string mName;
+    string mDescription;
+    int mDamage;
 
 public:
-    Abilities();
-    void addAbility();
+  
+    Ability();
+    Ability(string name, string description, int dmg);
+
+    string GetName();
+    string GetDescription();
 };

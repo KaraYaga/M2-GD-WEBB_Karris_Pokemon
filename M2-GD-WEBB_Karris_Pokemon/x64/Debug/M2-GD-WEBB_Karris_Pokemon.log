@@ -1,6 +1,5 @@
 ﻿  M2-GD-WEBB_Karris_Pokemon.cpp
-C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon.cpp(73,9): error C3861: 'getPokeballs': identifier not found
+  Pokemon.cpp
   Trainer.cpp
-C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\Trainer.cpp(44,14): error C2084: function 'int Trainer::getLife(void)' already has a body
-C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\Trainer.cpp(35,14): message : see previous definition of 'getLife'
   Generating Code...
+  M2-GD-WEBB_Karris_Pokemon.vcxproj -> C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\x64\Debug\M2-GD-WEBB_Karris_Pokemon.exe

@@ -7,6 +7,10 @@ using namespace std;
 
 int main()
 {
+    Pokemon pikachu = Pokemon();
+    pikachu.chooseAbilities();
+    pikachu.DisplayAbilities();
+
 //Setting up PLAYER CHARACTER
     cout << "Hello Trainer! It's good to have a new face around here!\nLets get you registered with the FNAF : French National Association of Friends!\nBecause that's what Pokemon are, our friends!\n\nNow what is your First Name?\n\n";
     string firstname;
@@ -79,6 +83,19 @@ int main()
         //WILD Pokemon Hunting
         if (action == "Wild")
         {
+        
+            cout << "Wonderful! You enter out into the grassy wilds and are surprised by a pokemon! Would you like to try and catch it?\n(Yes / No)";
+            string trytocatch;
+            cin >> trytocatch;
+
+            if (trytocatch == "Yes") 
+            {
+                cout << "You have entered a battle with a wild Pokemon! Choose the Pokemon you would like to battle with!";
+            }
+            else 
+            {
+
+            }
 
         }
 

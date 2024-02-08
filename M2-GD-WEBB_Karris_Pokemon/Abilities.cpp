@@ -1,21 +1,26 @@
 #include "Abilities.h"
+#include <iostream>
+using namespace std;
 
 //ABILITIES LIST
 
-Abilities::Abilities() {
-    mAbility[0] = "Ability 1";
-    mAbility[1] = "Ability 2";
-    mAbility[2] = "Ability 3";
-    mAbility[3] = "Ability 4";
+Ability::Ability() {
+    mName = "Default";
+    mDescription = "Default";
+};
+
+
+Ability::Ability(string name, string description, int dmg) {
+    mName = name;
+    mDescription = description;
+    mDamage = dmg;
 }
 
-void addAbility(Abilities ability)
+string Ability::GetName()
 {
-    // Check if there's room to ADD ABILITY
-    for (int i = 0; i < 4; ++i) {
-        if (mAbility[i].empty()) {
-            mAbility[i] = ability;
-            return;
-        }
-    }
-};
+    return mName;
+}
+string Ability::GetDescription()
+{
+    return mDescription;
+}
