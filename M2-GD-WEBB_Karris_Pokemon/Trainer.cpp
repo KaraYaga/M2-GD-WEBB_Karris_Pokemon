@@ -34,6 +34,8 @@ Trainer::Trainer()
     mPokeballs = 5;
 }
 
+
+
 Trainer::~Trainer() {}
 
 string Trainer::getTrainerName() { return mTrainerName, mTrainerLastName; }
@@ -53,9 +55,11 @@ void Trainer::setCatchphrase(string newCatchphrase)
 int Trainer::getMoney() { return mMoney; }
 int Trainer::getPokeballs() { return mPokeballs; }
 int Trainer::getLife() { return mTrainerLife; }
-
+void Trainer::CapturePokemon(Pokemon captured){
+    mTeam.push_back(captured);
+}
 //DISPLAY TEAM / PUSH BACK INTO TEAM
-vector <Pokemon> Trainer::displayTeam()
+vector <Pokemon> Trainer::GetTeam()
 {
     return mTeam;
 }

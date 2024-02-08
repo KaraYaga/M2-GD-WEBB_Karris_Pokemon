@@ -54,9 +54,9 @@ int main()
         cout << "Wonderful! Here are " << defaultPokemon.getPokemonName() << "'s 4 Abilities!\n";
         defaultPokemon.DisplayAbilities();
 
-        if (player.displayTeam().size() < 6)
+        if (player.GetTeam().size() < 6)
         {
-            player.displayTeam().push_back(defaultPokemon);
+            player.CapturePokemon(defaultPokemon);
         }
     }
 
@@ -84,9 +84,9 @@ int main()
         cout << "Wonderful! Here are " << customPokemon.getPokemonName() << "'s 4 Abilities!\n";
         customPokemon.DisplayAbilities();
 
-        if (player.displayTeam().size() < 6)
+        if (player.GetTeam().size() < 6)
         {
-            player.displayTeam().push_back(customPokemon);
+            player.CapturePokemon(customPokemon);
         }
 
     }
@@ -94,13 +94,23 @@ int main()
     cout << "Now that we have registered you and your Pokemon you are set to battle other Trainers and their Pokemon!\n\nEvery Trainer may have up to 6 Pokemon in their team so, we have provided you with 5 standard issue Pokeballs to be able to catch wild ones!\nPlease respect the Pokemon Nature and Health Preservation Act when catching wild Pokemon, and if your Pokemon become injured in battle you can let them rest, give them medicine, or come back here for medical treatment.\n\nTake good care of your Pokemon, and don't forget to visit from time to time!\n\n";
 
  //ADVENTURING
-    bool canAdventure;
-    bool canBattle;
+    bool canAdventure = false;
+    bool canBattle = false;
 
     // Flags to track whether each trainer has been defeated
     bool bigGuyDefeated = false;
     bool bombasticaDefeated = false;
     bool phoenicaDefeated = false;
+
+    //DEFINING ENEMY TRAINERS
+    Trainer bigGuy("Big", "Guy");
+    bigGuy.SetPokemons(vector<Pokemon>{Pokemon("Snorlax", "Tired...", PokemonTypes::FAIRY, 30), Pokemon("Beebo", "A weird Bee thing.", PokemonTypes::FLYING, 30), Pokemon("Harper", "A cute bunny that likes to play music.", PokemonTypes::FAIRY, 30)});
+
+    Trainer bombastica("Bombastica", "The Bomb");
+    bombastica.SetPokemons(vector<Pokemon>{Pokemon("Terry", "He's just a little guy!", PokemonTypes::FAIRY, 30), Pokemon("Rankor", "He's angry! He's red! He's Rankor!", PokemonTypes::DRAGON, 35), Pokemon("Bubalo", "A giant bubble that will explode at any momet!", PokemonTypes::POISON, 35), Pokemon("Marnimar", "A weird set of teeth...", PokemonTypes::GHOST, 40)});
+
+    Trainer phoenica("Phoenica", "La Phoenix");
+    //phoenica.SetPokemons(vector<Pokemon>{Pokemon("Snorlax", "Tired", PokemonTypes::FAIRY, 30), Pokemon("Beebo", "A weird Bee thing", PokemonTypes::FLYING, 30), Pokemon("Harper", "A cute bunny that likes to play music", PokemonTypes::FAIRY, 30), Pokemon("Marnimar", "A weird set of teeth...", PokemonTypes::GHOST, 30), Pokemon("Marnimar", "A weird set of teeth...", PokemonTypes::GHOST, 30)});
 
     while (canAdventure || canBattle) {
         if (canAdventure) {

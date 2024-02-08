@@ -18,7 +18,7 @@ private:
 	bool inBall;
 
 public:
-	Pokemon(string mName, string mDescription, PokemonTypes pokeType);
+	Pokemon(string mName, string mDescription, PokemonTypes pokeType, int mLife);
 	Pokemon();
 	~Pokemon();
 
