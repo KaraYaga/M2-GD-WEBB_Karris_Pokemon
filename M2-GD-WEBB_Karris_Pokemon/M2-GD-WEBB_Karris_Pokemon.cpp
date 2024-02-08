@@ -50,6 +50,12 @@ int main()
         Pokemon defaultPokemon = Pokemon();
 
         cout << "Your pokemon " << defaultPokemon.getPokemonName() << " has been registered in the Pokedex! Here is a recap :\n" << defaultPokemon.getPokemonDescription() << "\n\n";
+
+        //CHOOSE ABILITIES
+        cout << "Now let's get " << defaultPokemon.getPokemonName() << " ready to fight!\n";
+        defaultPokemon.chooseAbilities();
+        cout << "Wonderful! Here are " << defaultPokemon.getPokemonName() << "'s 4 Abilities!\n";
+        defaultPokemon.DisplayAbilities();
     }
 
     if (pokeAnswer == "Custom")
@@ -69,6 +75,13 @@ int main()
         custom = Pokemon(name, description, type);
 
         cout << "Your pokemon " << custom.getPokemonName() << "\n" << " has been registered in the Pokedex! Here is a recap :\n" << custom.getPokemonDescription() << "\n\n";
+
+        //CHOOSE ABILITIES
+        cout << "Now let's get " << custom.getPokemonName() << " ready to fight!\n";
+        custom.chooseAbilities();
+        cout << "Wonderful! Here are " << custom.getPokemonName() << "'s 4 Abilities!\n";
+        custom.DisplayAbilities();
+
     }
 
     cout << "Now that we have registered you and your Pokemon you are set to battle other Trainers and their Pokemon!\n\nEvery Trainer may have up to 6 Pokemon in their team so, we have provided you with 5 standard issue Pokeballs to be able to catch wild ones!\nPlease respect the Pokemon Nature and Health Preservation Act when catching wild Pokemon, and if your Pokemon become injured in battle you can let them rest, give them medicine, or come back here for medical treatment.\n\nTake good care of your Pokemon, and don't forget to visit from time to time!\n\n";
@@ -91,6 +104,7 @@ int main()
             if (trytocatch == "Yes") 
             {
                 cout << "You have entered a battle with a wild Pokemon! Choose the Pokemon you would like to battle with!";
+
             }
             else 
             {

@@ -13,7 +13,7 @@ private:
 	int mTrainerLife;
 	int mPokeballs;
 
-	string Pokemon[6];
+	Pokemon Team[6];
 
 public:
 	Trainer(string name, string lastname, string catchphrase);
@@ -30,7 +30,8 @@ public:
 	int getLife();
 	int getPokeballs();
 
-	void setPokemon(string pokemon1, string pokemon2, string pokemon3, string pokemon4, string pokemon5, string pokemon6);
+	void chooseTeam();
+	void displayTeam();
 
 };
 

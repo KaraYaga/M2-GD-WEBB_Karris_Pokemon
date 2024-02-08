@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 
-//ABILITIES LIST
-
-Ability::Ability() {
+//ABILITY STATS
+Ability::Ability() 
+{
     mName = "Default";
     mDescription = "Default";
 };
