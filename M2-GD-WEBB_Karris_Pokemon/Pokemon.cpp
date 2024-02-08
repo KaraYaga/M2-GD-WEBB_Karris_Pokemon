@@ -33,10 +33,22 @@ int Pokemon::getLife() { return mLife; }
 //CHOOSE ABILITIES FOR POKEMON
 void Pokemon::chooseAbilities() {
     vector<Ability> allAbilities = {
-        Ability("Charge", "cool", 10),
-        Ability("Supercharge", "supercool", 10),
-        Ability("zap", "electric", 10),
-        Ability("grab", "ow", 5),
+        Ability("Smash", "Bludgeon your enemy with brute force!", 5),
+        Ability("Slash", "Lash out at your enemy with sharpened skill!", 5),
+        Ability("Rip", "Rip apart the flesh of your enemies!", 10),
+        Ability("Tear", "Tear apart your enemies, limb from limb!", 10),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
+        Ability("", "", 0),
     };
     
 
