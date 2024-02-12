@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
-#include "PokemonTypes.h"
-#include "Abilities.h"
+#include "WildEncounters.h";
 using namespace std;
 
 class Pokemon
@@ -26,6 +25,7 @@ public:
 	string getPokemonName();
 	string getPokemonDescription();
 	PokemonTypes getPokemonType();
+	WildEncounters GenerateRandomWildPokemon();
 	int getLevel();
 	int getLife();
 

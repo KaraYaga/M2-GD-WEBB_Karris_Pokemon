@@ -102,3 +102,25 @@ void Pokemon::DisplayAbilities()
         cout << mAbility[i].GetName() << endl;
     }
 }
+
+//RANDOM WILD ENCOUNTER
+Pokemon WildEncounters::GenerateRandomWildPokemon()
+{
+    // Define a list of wild Pokémon species
+    vector<std::string> wildOptions =
+    { "Pidgey",
+      "Rattata",
+      "Caterpie",
+      "Weedle",
+      "Pikachu",
+      "Spearow",
+      "Ekans",
+      "Sandshrew"
+    };
+
+    // RANDOM choice from List
+    int randomIndex = rand() % wildOptions.size();
+
+    // Create and return the wild Pokémon
+    return wildPokemon(wildOptions[randomIndex], "A wild Pokémon appears!", PokemonTypes::DEFAULT);
+}

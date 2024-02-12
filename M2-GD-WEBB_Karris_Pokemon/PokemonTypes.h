@@ -1,4 +1,5 @@
 #pragma once
+#include "WildEncounter.h";
 #include <iostream>
 using namespace std;
 

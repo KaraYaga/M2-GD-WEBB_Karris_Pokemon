@@ -123,8 +123,14 @@ int main()
                 string trytocatch;
                 cin >> trytocatch;
 
-                if (trytocatch == "Yes") {
-                    cout << "You have entered a battle with a wild Pokemon! Choose the Pokemon you would like to battle with!";
+                if (trytocatch == "Yes") 
+                {
+                    // Generate a random wild Pokemon
+                    Pokemon wildPokemon = WildEncounters::GenerateRandomWildPokemon();
+
+                    // Display  wild Pokémon
+                    cout << "A wild " << wildPokemon.getPokemonName() << " appears!\n";
+                    cout << "Choose the Pokemon you would like to battle with!";
                     vector<Pokemon> displayTeam();
                     string chosenPokemon;
                     cin >> chosenPokemon;
