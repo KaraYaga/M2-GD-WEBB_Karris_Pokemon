@@ -131,12 +131,14 @@
     <ClCompile Include="M2-GD-WEBB_Karris_Pokemon.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="Trainer.cpp" />
+    <ClCompile Include="WildEncounters.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abilities.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="PokemonTypes.h" />
     <ClInclude Include="Trainer.h" />
+    <ClInclude Include="WildEncounters.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

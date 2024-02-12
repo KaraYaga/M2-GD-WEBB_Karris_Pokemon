@@ -27,6 +27,9 @@
     <ClCompile Include="Abilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WildEncounters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pokemon.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Abilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WildEncounters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
