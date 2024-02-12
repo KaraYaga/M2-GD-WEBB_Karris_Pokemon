@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 //LEVEL 1 CUSTOM VALUES
-Pokemon::Pokemon(string name, string description, PokemonTypes pokeType)
+Pokemon::Pokemon(string name, string description, PokemonTypes pokeType, int mLife)
 {
     mName = name;
     mDescription = description;

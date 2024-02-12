@@ -110,7 +110,7 @@ int main()
     bombastica.SetPokemons(vector<Pokemon>{Pokemon("Terry", "He's just a little guy!", PokemonTypes::FAIRY, 30), Pokemon("Rankor", "He's angry! He's red! He's Rankor!", PokemonTypes::DRAGON, 35), Pokemon("Bubalo", "A giant bubble that will explode at any momet!", PokemonTypes::POISON, 35), Pokemon("Marnimar", "A weird set of teeth...", PokemonTypes::GHOST, 40)});
 
     Trainer phoenica("Phoenica", "La Phoenix");
-    //phoenica.SetPokemons(vector<Pokemon>{Pokemon("Snorlax", "Tired", PokemonTypes::FAIRY, 30), Pokemon("Beebo", "A weird Bee thing", PokemonTypes::FLYING, 30), Pokemon("Harper", "A cute bunny that likes to play music", PokemonTypes::FAIRY, 30), Pokemon("Marnimar", "A weird set of teeth...", PokemonTypes::GHOST, 30), Pokemon("Marnimar", "A weird set of teeth...", PokemonTypes::GHOST, 30)});
+    phoenica.SetPokemons(vector<Pokemon>{Pokemon("Yoba", "A fallen god, consumed by the Earth.", PokemonTypes::PLANT, 40), Pokemon("Boba", "A pair of strange black balls that stare at you.", PokemonTypes::WATER, 40), Pokemon("Soba", "A... noodle bowl?", PokemonTypes::FAIRY, 45), Pokemon("Phoenix", "The rising sun, the dying ash, your proclaimed DOOM.", PokemonTypes::FLYING, 50)});
 
     while (canAdventure || canBattle) {
         if (canAdventure) {
