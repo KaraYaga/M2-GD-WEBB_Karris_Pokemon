@@ -74,7 +74,7 @@ int main()
 
         PokemonTypes type = choosePokemonType();
 
-        customPokemon = Pokemon(name, description, type);
+        customPokemon = Pokemon(name, description, type, customPokemon.getLevel(), customPokemon.getLife());
 
         cout << "Your pokemon " << customPokemon.getPokemonName() << "\n" << " has been registered in the Pokedex! Here is a recap :\n" << customPokemon.getPokemonDescription() << "\n\n";
 

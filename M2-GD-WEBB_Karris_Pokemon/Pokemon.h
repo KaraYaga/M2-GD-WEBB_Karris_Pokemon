@@ -18,8 +18,9 @@ private:
 	bool inBall;
 
 public:
-	Pokemon(string mName, string mDescription, PokemonTypes pokeType, int mLife);
-	Pokemon();
+	Pokemon(string mName, string mDescription, PokemonTypes pokeType); //CUSTOM
+	Pokemon(string mName, string mDescription, PokemonTypes pokeType, int mLife, int mLevel); //DEFAULT
+	Pokemon(); //TRAINER
 	~Pokemon();
 
 	string getPokemonName();
