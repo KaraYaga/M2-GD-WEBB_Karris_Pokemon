@@ -20,7 +20,7 @@ private:
 public:
 	Pokemon(string mName, string mDescription, PokemonTypes pokeType); //CUSTOM
 	Pokemon(string mName, string mDescription, PokemonTypes pokeType, int mLife, int mLevel); //DEFAULT
-	void t_Pokemon(); //TRAINER
+	Pokemon(); //TRAINER
 	~Pokemon();
 
 	string getPokemonName();
