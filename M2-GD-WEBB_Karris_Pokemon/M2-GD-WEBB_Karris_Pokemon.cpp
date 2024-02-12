@@ -1,6 +1,5 @@
 // M2-GD-WEBB_Karris_Pokemon.cpp : This file contains the 'main' function. Program execution begins and ends there.
 #include <iostream>
-#include "Pokemon.h"
 #include "Trainer.h"
 #include "PokemonTypes.h"
 using namespace std;
@@ -74,7 +73,7 @@ int main()
 
         PokemonTypes type = choosePokemonType();
 
-        customPokemon = Pokemon(name, description, type, customPokemon.getLevel(), customPokemon.getLife());
+        customPokemon = Pokemon(name, description, type);
 
         cout << "Your pokemon " << customPokemon.getPokemonName() << "\n" << " has been registered in the Pokedex! Here is a recap :\n" << customPokemon.getPokemonDescription() << "\n\n";
 

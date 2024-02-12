@@ -19,8 +19,8 @@ private:
 
 public:
 	Pokemon(string mName, string mDescription, PokemonTypes pokeType); //CUSTOM
-	Pokemon(string mName, string mDescription, PokemonTypes pokeType, int mLife, int mLevel); //DEFAULT
-	Pokemon(); //TRAINER
+	Pokemon(); //DEFAULT
+	Pokemon(string name, string description, PokemonTypes pokeType, int mLife); //TRAINER
 	~Pokemon();
 
 	string getPokemonName();

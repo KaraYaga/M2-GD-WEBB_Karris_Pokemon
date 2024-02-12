@@ -22,14 +22,14 @@ Pokemon::Pokemon()
     mLife = 10;
 }
 
-//TREAINER POKEMON
+//TRAINER POKEMON
 Pokemon::Pokemon(string name, string description, PokemonTypes pokeType, int mLife)
 {
     mName = name;
     mDescription = description;
     mPokemonType = pokeType;
     mLevel = 1;
-    mLife = 0;
+    this->mLife = mLife;
 }
 
 //POKEMON STATS
