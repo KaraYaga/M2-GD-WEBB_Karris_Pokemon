@@ -2,6 +2,8 @@
 #include <iostream>
 #include "Trainer.h"
 #include "PokemonTypes.h"
+#include <cstdlib>
+#include <ctime> 
 using namespace std;
 
 int main()
@@ -125,15 +127,31 @@ int main()
 
                 if (trytocatch == "Yes") 
                 {
+                    //WildEncounters Instance
+                    WildEncounters wildEncounter;
+
                     // Generate a random wild Pokemon
-                    Pokemon wildPokemon = WildEncounters::GenerateRandomWildPokemon();
+                    wildEncounter.GenerateRandomWildPokemon();
 
                     // Display  wild Pokémon
-                    cout << "A wild " << wildPokemon.getPokemonName() << " appears!\n";
-                    cout << "Choose the Pokemon you would like to battle with!";
-                    vector<Pokemon> displayTeam();
-                    string chosenPokemon;
-                    cin >> chosenPokemon;
+                    cout << "A wild " << wildEncounter.wildName() << " appears!\n";
+                    cout << "Would you like to catch it?\n(Yes / No)";
+                    string catchPokemon;
+                    cin >> catchPokemon;
+
+                    if (catchPokemon == "Yes") 
+                    {
+                        // Capture the wild Pokémon
+                        Pokemon wildPokemon = Pokemon(wildEncounter.wildName(), "Wild Pokémon", PokemonTypes::DEFAULT); // Create a Pokémon instance
+                        wildPokemon.chooseAbilities(); // Choose abilities for the captured Pokémon
+                        player.CapturePokemon(wildPokemon); // Add the captured Pokémon to the player's team
+                        cout << "You successfully caught the wild " << wildPokemon.getPokemonName() << "!\n";
+                        player.usePokeball(); // Use up one Pokeball
+                    }
+                    if (catchPokemon == "No")
+                    {
+                        continue; // Go back to beginning of loop
+                    }
 
                     // Additional logic for battling the wild Pokemon goes here
                 }

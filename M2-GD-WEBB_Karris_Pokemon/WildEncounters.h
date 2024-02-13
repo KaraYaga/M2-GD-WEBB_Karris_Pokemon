@@ -1,6 +1,9 @@
 #pragma once
+#pragma once
 #include "PokemonTypes.h"
 #include "Abilities.h"
+#include <vector>
+#include <string>
 using namespace std;
 
 class WildEncounters
@@ -12,13 +15,11 @@ private:
     int mLevel;
 
 public:
-    WildEncounters wildPokemon();
-    WildEncounters wildPokemon(string wildName, string wildDescription, int life, int level);
+    WildEncounters(); // Default
+    WildEncounters(string wildName, string wildDescription, int life, int level); // Custom
 
-    string GetName();
-    string GetDescription();
+    string wildName();
+    string wildDescription();
 
     void GenerateRandomWildPokemon();
-
 };
-

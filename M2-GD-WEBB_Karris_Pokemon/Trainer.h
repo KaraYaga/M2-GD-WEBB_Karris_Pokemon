@@ -37,6 +37,7 @@ public:
 	int getMoney();
 	int getLife();
 	int getPokeballs();
+	int usePokeball();
 
 	//Pokemon TEAM
 	void SetPokemons(vector<Pokemon> team);

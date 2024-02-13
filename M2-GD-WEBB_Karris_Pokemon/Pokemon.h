@@ -25,7 +25,6 @@ public:
 	string getPokemonName();
 	string getPokemonDescription();
 	PokemonTypes getPokemonType();
-	WildEncounters GenerateRandomWildPokemon();
 	int getLevel();
 	int getLife();
 

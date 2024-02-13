@@ -1,9 +1,36 @@
-#include "WildEncounters.h"
-#include <cstdlib> // For rand() function
+#pragma once
+#include "PokemonTypes.h"
+#include "Abilities.h"
 #include <vector>
+#include <string>
+using namespace std;
 
+class WildEncounters
+{
+private:
+    string mName;
+    string mDescription;
+    int mLife;
+    int mLevel;
 
-WildEncounters::wildPokemon(string wildName, string wildDescription, int life, int level)
+public:
+    WildEncounters(); // Default
+    WildEncounters(string wildName, string wildDescription, int life, int level); // Custom
+
+    string wildName();
+    string wildDescription();
+
+    void GenerateRandomWildPokemon();
+};
+
+// Implementations
+
+WildEncounters::WildEncounters()
+{
+    // Default constructor implementation
+}
+
+WildEncounters::WildEncounters(string wildName, string wildDescription, int life, int level)
 {
     mName = wildName;
     mDescription = wildDescription;
@@ -11,19 +38,20 @@ WildEncounters::wildPokemon(string wildName, string wildDescription, int life, i
     mLevel = level;
 }
 
-string Ability::GetName()
+string WildEncounters::wildName()
 {
     return mName;
 }
-string Ability::GetDescription()
+
+string WildEncounters::wildDescription()
 {
     return mDescription;
 }
 
-void GenerateRandomWildPokemon()
+void WildEncounters::GenerateRandomWildPokemon()
 {
     // Define a list of wild Pokémon species
-    vector<std::string> wildPokemon =
+    vector<string> wildPokemon =
     { "Pidgey",
       "Rattata",
       "Caterpie",
@@ -37,6 +65,6 @@ void GenerateRandomWildPokemon()
     // RANDOM choice from List
     int randomIndex = rand() % wildPokemon.size();
 
-    // Create and return the wild Pokémon
-    return wildPokemon[randomIndex], "A wild Pokémon appears!", PokemonTypes::DEFAULT);
+    // Assuming you want to print the result, change return type to void
+    cout << wildPokemon[randomIndex] << " appears!\n";
 }
