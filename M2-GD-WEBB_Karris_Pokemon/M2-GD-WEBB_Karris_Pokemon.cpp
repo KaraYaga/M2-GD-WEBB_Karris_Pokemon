@@ -143,7 +143,7 @@ int main()
                     {
                         //Add Battle Logic if Smart Enough
                         // Capture the wild Pokémon
-                        Pokemon wildPokemon = Pokemon(wildEncounter.wildName(), "Wild Pokémon", PokemonTypes::DEFAULT); // Create a Pokémon instance
+                        Pokemon wildPokemon = Pokemon(wildEncounter.wildName(), wildEncounter.wildDescription(), PokemonTypes::DEFAULT); // Create a Pokémon instance
                         wildPokemon.chooseAbilities(); // Choose abilities for the captured Pokémon
                         player.CapturePokemon(wildPokemon); // Add the captured Pokémon to the player's team
                         cout << "You successfully caught " << wildPokemon.getPokemonName() << "!\n";

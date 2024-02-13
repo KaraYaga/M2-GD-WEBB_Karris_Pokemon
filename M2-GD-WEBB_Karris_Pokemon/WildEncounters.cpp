@@ -50,17 +50,19 @@ string WildEncounters::wildDescription()
 
 void WildEncounters::GenerateRandomWildPokemon()
 {
-    // Define a list of wild Pokémon species
-    vector<string> wildPokemon =
-    { "Pidgey",
-      "Rattata",
-      "Caterpie",
-      "Weedle",
-      "Pikachu",
-      "Spearow",
-      "Ekans",
-      "Sandshrew"
-    };
+  // Define a list of wild Pokémon species
+  vector<string> wildPokemon =
+  {
+    ("Frutiger", ("What a sweet little bubble!", 20)),
+    ("Orion", ("It's said you can see constellations in it's eyes.", 20)),
+    ("Aero", ("A plant that looks like it's made of glass! She sways back and forth.", 20)),
+    ("Flutter", ("It's tiny wings can barely hold up it's huge body!", 30)),
+    ("Twilight", ("You can only fully see this Pokemon when the sun is setting! Otherwise it's a mist...", 30)),
+    ("Pinkamina", ("One of the funniest Pokemon around! Be careful her laughter is contagious, and you can never stop!", 35)),
+    ("Grim", ("He may look sad but that's just because bones can't show emotions, he's actually quite happy!", 35)),
+    ("Glorbo", ("Glorbo can absolve you of your sins.", 40)),
+    ("Etn", ("Etn is the sweetest pokemon there is! Etn is our personal favorite, and is always registered as Number 1!", 45)),
+   };
 
     // RANDOM choice from List
     int randomIndex = rand() % wildPokemon.size();
