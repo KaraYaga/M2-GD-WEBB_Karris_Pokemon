@@ -141,12 +141,13 @@ int main()
 
                     if (catchPokemon == "Yes") 
                     {
+                        //Add Battle Logic if Smart Enough
                         // Capture the wild Pokémon
                         Pokemon wildPokemon = Pokemon(wildEncounter.wildName(), "Wild Pokémon", PokemonTypes::DEFAULT); // Create a Pokémon instance
                         wildPokemon.chooseAbilities(); // Choose abilities for the captured Pokémon
                         player.CapturePokemon(wildPokemon); // Add the captured Pokémon to the player's team
-                        cout << "You successfully caught the wild " << wildPokemon.getPokemonName() << "!\n";
-                        player.usePokeball(); // Use up one Pokeball
+                        cout << "You successfully caught " << wildPokemon.getPokemonName() << "!\n";
+                        player.usePokeball(); // Use a Pokeball
                     }
                     if (catchPokemon == "No")
                     {
@@ -155,7 +156,8 @@ int main()
 
                     // Additional logic for battling the wild Pokemon goes here
                 }
-                else {
+                else 
+                {
                     continue; // Go back to beginning of loop
                 }
             }
