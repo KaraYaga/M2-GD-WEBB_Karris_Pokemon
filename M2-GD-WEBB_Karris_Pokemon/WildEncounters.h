@@ -12,12 +12,13 @@ private:
     int mLevel;
 
 public:
-    wildPokemon();
-    wildPokemon(string wildName, string wildDescription, int life, int level);
+    WildEncounters wildPokemon();
+    WildEncounters wildPokemon(string wildName, string wildDescription, int life, int level);
 
     string GetName();
     string GetDescription();
 
+    void GenerateRandomWildPokemon();
 
 };
 
