@@ -112,32 +112,30 @@ void Pokemon::DisplayAbilities()
 {
     for (int i = 0; i < 4; i++) 
     {
-        cout << mAbility[i].GetName() << endl;
+        cout << "\n" << mAbility[i].GetName() << "\n\n";
     }
 }
 
 //CHOOSE FROM FOUR ABILITIES FOR BATTLE
-void Pokemon::BattleAbility()
+int Pokemon::BattleAbility()
 {
-    for (int i = 0; i < 4; i++)
-    {
-        cout << mAbility[i].GetName() << endl;
-        std::cout << "Enter the number of the Ability you wish to use : ";
-
-        int battlechoice;
-        std::cin >> battlechoice;
-
-        cout << mName << " uses " << battlechoice << "!";
-    }
+    cout << "Enter the number of the Ability you wish to use : ";
+    int battlechoice;
+    cin >> battlechoice;
+    return battlechoice - 1; // Adjusting index for array access
 }
+
 void Pokemon::UseAbilityAgainst(int ability, Pokemon& target)
 {
+    // Ensure the ability index is within bounds
+    if (ability < 0 || ability >= 4) {
+        cout << "Invalid ability choice!";
+        return;
+    }
+
     target.takeDamage(mAbility[ability].getDamage());
-    cout << mAbility[ability].GetName() << " deals " << mAbility[ability].getDamage() << " to " << target.getPokemonName()<<endl;
+    cout << mName << " uses " << mAbility[ability].GetName() << "!";
+    cout << mAbility[ability].GetName() << " deals " << mAbility[ability].getDamage() << " to " << target.getPokemonName() << endl;
     cout << target.getLife() << " is what remains of their health!";
 }
-//USE ABILITY
-void useAbility(int index) 
-{
-    
-}
+
