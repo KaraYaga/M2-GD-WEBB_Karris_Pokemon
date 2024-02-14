@@ -26,8 +26,11 @@ public:
 
     // Pokemon Stats
     string getPokemonName();
+    void setPokemonName(const string& name);
     string getPokemonDescription();
+    void setPokemonDescription(const string& description);
     PokemonTypes getPokemonType();
+    void setPokemonType(PokemonTypes type);
     int getLevel();
     int getLife();
     // Abilities

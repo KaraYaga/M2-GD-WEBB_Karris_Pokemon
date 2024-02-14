@@ -43,15 +43,22 @@ inline PokemonTypes choosePokemonType() {
         << "16. DRAGON\n"
         << "Enter the number corresponding to the type: ";
 
-    int choice;
-    cin >> choice;
+   int choice;
+   while (true) 
+   {
+       if (cin >> choice && choice >= 1 && choice <= 16) {
+           break;  // Break out of the loop if the input is valid
+       }
+       else {
+           cout << "Invalid input. Please enter a number between 1 and 16: ";
+           cin.clear(); // Clear error flags
+           cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+       }
+   }
 
-    // Validate user input
-    while (choice < 1 || choice > 16) {
-        cout << "Invalid choice. Please enter a number between 1 and 16: ";
-        cin >> choice;
-    }
+   // Clear the newline character from the buffer
+   cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    // Convert user input to enum type
-    return static_cast<PokemonTypes>(choice - 1);
+   // Convert user input to enum type
+   return static_cast<PokemonTypes>(choice - 1);
 }

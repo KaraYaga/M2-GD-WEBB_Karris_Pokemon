@@ -11,6 +11,21 @@ Pokemon::Pokemon(string name, string description, PokemonTypes pokeType)
     mLevel = 1;
     mLife = 10;
 }
+//Setting the values
+void Pokemon::setPokemonName(const string& name) 
+{
+    mName = name;
+}
+
+void Pokemon::setPokemonDescription(const string& description) 
+{
+    mDescription = description;
+}
+
+void Pokemon::setPokemonType(PokemonTypes type) {
+    mPokemonType = type;
+}
+
 
 //LEVEL 1 DEFAULT VALUES
 Pokemon::Pokemon()

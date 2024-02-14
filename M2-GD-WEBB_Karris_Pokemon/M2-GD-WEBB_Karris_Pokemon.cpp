@@ -28,7 +28,7 @@ int main()
     {
         std::cout << "Please enter your new Catchphrase " << firstname << " " << lastname << "!\n\n";
         string catchphrase;
-        std::cin >> catchphrase;
+        std::getline(std::cin >> std::ws, catchphrase); // Read catchphrase and clear newline from buffer
         player = Trainer(firstname, lastname, catchphrase);
         std::cout << "Wonderful choice!\n\n";
     }
@@ -63,35 +63,37 @@ int main()
         }
     }
 
-    if (pokeAnswer == "Custom")
-    {
+    if (pokeAnswer == "Custom") {
         Pokemon* customPokemon = new Pokemon();
 
         cout << "What would you like to name your Pokemon?\n\n";
+        cin.ignore();  // Clear the newline character from the buffer
         string name;
-        getline(cin, name); // Read the entire line including spaces
+        getline(cin, name);
 
         cout << "Please describe your Pokemon so we may update the Pokedex!\n\n";
         string description;
-        getline(cin, description); // Read the entire line including spaces
+        getline(cin, description);
 
         PokemonTypes type = choosePokemonType();
 
-        customPokemon = new Pokemon(name, description, type);
+        // Update the existing customPokemon with the new information
+        customPokemon->setPokemonName(name);
+        customPokemon->setPokemonDescription(description);
+        customPokemon->setPokemonType(type);
 
-        cout << "Your pokemon " << customPokemon->getPokemonName() << "\n" << " has been registered in the Pokedex! Here is a recap :\n" << customPokemon->getPokemonDescription() << "\n\n";
+        cout << "Your pokemon " << customPokemon->getPokemonName() << " has been registered in the Pokedex! Here is a recap :\n"
+            << customPokemon->getPokemonDescription() << "\n\n";
 
-        //CHOOSE ABILITIES
+        // CHOOSE ABILITIES
         cout << "Now let's get " << customPokemon->getPokemonName() << " ready to fight!\n\n";
         customPokemon->chooseAbilities();
         cout << "Wonderful! Here are " << customPokemon->getPokemonName() << "'s 4 Abilities!\n\n";
         customPokemon->DisplayAbilities();
 
-        if (player.GetTeam().size() < 6)
-        {
+        if (player.GetTeam().size() < 6) {
             player.CapturePokemon(*customPokemon);
         }
-
     }
 
     cout << "Now that we have registered you and your Pokemon you are set to battle other Trainers and their Pokemon!\n\nEvery Trainer may have up to 6 Pokemon in their team so, we have provided you with 5 standard issue Pokeballs to be able to catch wild ones!\nPlease respect the Pokemon Nature and Health Preservation Act when catching wild Pokemon, and if your Pokemon become injured in battle you can let them rest, give them medicine, or come back here for medical treatment.\n\nTake good care of your Pokemon, and don't forget to visit from time to time!\n\n";
@@ -102,7 +104,7 @@ int main()
 
     // Flags to track whether each trainer has been defeated
     bool bigGuyDefeated = false;
-    bool bombasticaDefeated = false;
+    //bool bombasticaDefeated = false;
     bool phoenicaDefeated = false;
 
     //DEFINING ENEMY TRAINERS
@@ -175,7 +177,6 @@ int main()
                 std::cout << "You have chosen to battle a Trainer! There is one gym, run by Big Guy, let's go fight!\n\n(Big Guy)\n\n";  //(Bombastica, Phoenica)
                 string fight;
                 getline(cin, fight);
-                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear the input buffer
 
                 //FIGHT BIG GUY
                 if (fight == "Big Guy")
