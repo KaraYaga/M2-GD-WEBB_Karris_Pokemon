@@ -168,6 +168,7 @@ int main()
                 string fight;
                 getline(cin, fight);
 
+                //FIGHT BIG GUY
                 if (fight == "Big Guy") 
                 {
                     if (!bigGuyDefeated) 
@@ -197,8 +198,8 @@ int main()
                             cin >> fightAbility;
 
                             //FIGHT
-                            randomPokemon takeDamage();
-                            cout << fightAbility << " does " << mDamage << " to " << randomPokemon.getPokemonName() << "!\n\n";
+                            randomPokemon.takeDamage();
+                            cout << fightAbility << " does " << fightAbility.getDamage() << " to " << randomPokemon.getPokemonName() << "!\n\n";
 
                         }
 
@@ -206,10 +207,9 @@ int main()
                         bool bigGuyTeamDefeated = false;
                         for (const auto& pokemon : bigGuy.GetTeam()) 
                         {
-                            if (pokemon.getLife() <= 0) {
+                            if (randomPokemon.getLife() <= 0) {
                                 bigGuyTeamDefeated = true;
-                                break; // No need to continue if at least one Pokemon is alive
-                            }
+                                break; // No need to continue i-+
                         }
                         if (bigGuyTeamDefeated) 
                         {
@@ -225,7 +225,7 @@ int main()
                         bool playerTeamAlive = true;
                         for (const auto& pokemon : player.GetTeam())
                         {
-                            if (pokemon.getLife() <= 0) 
+                            if (chosenOne.getLife() <= 0)
                             {
                                 playerTeamAlive = false;
                                 break; // No need to continue if at least one Pokemon is alive
@@ -237,11 +237,15 @@ int main()
                         }
 
                     }
-                    else {
+
+                    else if (bigGuyDefeated == true)
+                    {
                         cout << "Big Guy has already been defeated." << endl;
                         continue; // Go back to the beginning of the loop to choose action again
                     }
                 }
+
+                //FIGHT BOMBASTICA
                 else if (fight == "Bombastica") 
                 {
                     if (!bombasticaDefeated) 
@@ -255,6 +259,8 @@ int main()
                         continue; // Go back to the beginning of the loop to choose action again
                     }
                 }
+                
+                //FIGHT PHOENICA
                 else if (fight == "Phoenica") 
                 {
                     if (!phoenicaDefeated) 

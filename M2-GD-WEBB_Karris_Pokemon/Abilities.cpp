@@ -26,3 +26,7 @@ string Ability::GetDescription()
 {
     return mDescription;
 }
+int Ability::getDamage() 
+{
+    return mDamage;
+}

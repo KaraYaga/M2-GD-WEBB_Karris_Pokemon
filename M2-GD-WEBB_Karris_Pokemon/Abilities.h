@@ -18,4 +18,5 @@ public:
 
     string GetName();
     string GetDescription();
+    int getDamage();
 };

@@ -98,8 +98,6 @@ void Pokemon::chooseAbilities() {
             }
         }
     };
-
-
 }
 
 int Pokemon::takeDamage()
@@ -133,5 +131,13 @@ void Pokemon::BattleAbility()
         std::cin >> battlechoice;
 
         cout << mName << " uses " << battlechoice << "!";
+    }
+}
+//USE ABILITY
+void useAbility(int index) 
+{
+    if (index >= 0 && index < allAbilities.size() && Abilities.mUses[index] > 0)
+    {
+        Abilitie.mUses[index]--;
     }
 }
