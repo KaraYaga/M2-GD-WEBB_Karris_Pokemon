@@ -33,7 +33,7 @@ public:
 	void takeDamage(int dmg);
 	void chooseAbilities();
 	void DisplayAbilities();
-	void BattleAbility();
+	int BattleAbility();
 	void UseAbilityAgainst(int ability, Pokemon& target);
 
 };
