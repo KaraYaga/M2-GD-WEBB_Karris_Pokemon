@@ -40,6 +40,12 @@ PokemonTypes Pokemon::getPokemonType() { return mPokemonType; }
 int Pokemon::getLevel() { return mLevel; }
 int Pokemon::getLife() { return mLife; }
 
+//TAKE DAMAGE
+int takeDamage()
+{
+   int life - Ability.mDamage;
+}
+
 //CHOOSE ABILITIES FOR POKEMON
 void Pokemon::chooseAbilities() {
     vector<Ability> allAbilities = 

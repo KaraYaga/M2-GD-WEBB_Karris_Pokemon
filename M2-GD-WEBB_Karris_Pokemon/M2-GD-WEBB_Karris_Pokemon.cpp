@@ -191,13 +191,19 @@ int main()
                        //Choose Ability for Fight
                         cout << "Which of " << battlePokemon << "'s abilities do you want to use?";
                         chosenOne.DisplayAbilities();
+                        int fightAbility;
+                        cin >> fightAbility;
+
+                       //FIGHT
+                        cout << fightAbility << " does " << mDamage << " to " << randomPokemon.getPokemonName() << "!";
 
                        // battlePokemon.BattleAbility();
 
                       
-                        // Set bigGuyDefeated to true if the player wins
+                        // Set bigGuyDefeated to true if the player wins and calculate rewards
                         bigGuyDefeated = true;
                         player.gainPokeball();
+                        player.winMoney();
                     }
                     else {
                         cout << "Big Guy has already been defeated." << endl;

@@ -28,6 +28,7 @@ public:
 	PokemonTypes getPokemonType();
 	int getLevel();
 	int getLife();
+	int takeDamage();
 
 	void chooseAbilities();
 	void DisplayAbilities();

@@ -1,3 +1,10 @@
-﻿  Trainer.cpp
+﻿  M2-GD-WEBB_Karris_Pokemon.cpp
 C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\Pokemon.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  M2-GD-WEBB_Karris_Pokemon.vcxproj -> C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\x64\Debug\M2-GD-WEBB_Karris_Pokemon.exe
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon.cpp(183,34): error C2248: 'Pokemon::inBall': cannot access private member declared in class 'Pokemon'
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\Pokemon.h(17,7): message : see declaration of 'Pokemon::inBall'
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\Pokemon.h(6,7): message : see declaration of 'Pokemon'
+  Pokemon.cpp
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\Pokemon.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Trainer.cpp
+C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\Pokemon.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
