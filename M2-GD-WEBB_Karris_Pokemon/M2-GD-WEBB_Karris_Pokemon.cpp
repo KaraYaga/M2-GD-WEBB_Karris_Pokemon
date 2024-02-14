@@ -180,7 +180,7 @@ int main()
                         int battlePokemon;
                         cin >> battlePokemon;
                         Pokemon chosenOne = player.GetTeam()[battlePokemon-1];
-                        chosenOne.inBall = false;
+                        chosenOne.setInBall(false);
                         cout << "You sent out " << chosenOne.getPokemonName() << "!\n\n";
 
                        //Trainer randomly sends out Pokemon
@@ -188,22 +188,54 @@ int main()
                         Pokemon randomPokemon = bigGuy.GetTeam()[randomIndex];
                         cout << "Big Guy sends out " << randomPokemon.getPokemonName() << "!\n\n";
                        
-                       //Choose Ability for Fight
-                        cout << "Which of " << battlePokemon << "'s abilities do you want to use?";
-                        chosenOne.DisplayAbilities();
-                        int fightAbility;
-                        cin >> fightAbility;
+                        while (randomPokemon.getLife() > 0)
+                        {
+                            //Choose Ability for Fight
+                            cout << "Which of " << battlePokemon << "'s abilities do you want to use?";
+                            chosenOne.DisplayAbilities();
+                            int fightAbility;
+                            cin >> fightAbility;
 
-                       //FIGHT
-                        cout << fightAbility << " does " << mDamage << " to " << randomPokemon.getPokemonName() << "!";
+                            //FIGHT
+                            randomPokemon takeDamage();
+                            cout << fightAbility << " does " << mDamage << " to " << randomPokemon.getPokemonName() << "!\n\n";
 
-                       // battlePokemon.BattleAbility();
+                        }
 
-                      
-                        // Set bigGuyDefeated to true if the player wins and calculate rewards
-                        bigGuyDefeated = true;
-                        player.gainPokeball();
-                        player.winMoney();
+                        // Check if Big Guy's team is defeated
+                        bool bigGuyTeamDefeated = false;
+                        for (const auto& pokemon : bigGuy.GetTeam()) 
+                        {
+                            if (pokemon.getLife() <= 0) {
+                                bigGuyTeamDefeated = true;
+                                break; // No need to continue if at least one Pokemon is alive
+                            }
+                        }
+                        if (bigGuyTeamDefeated) 
+                        {
+                            // Set bigGuyDefeated to true if the player wins and calculate rewards
+                            cout << "You have successfully defeated Big Guy! You've gained a Pokeball and some money!\n\n";
+                            //Rewards
+                            bigGuyDefeated = true;
+                            player.gainPokeball();
+                            player.winMoney();
+                        }
+
+                        // Check if the player's team is alive
+                        bool playerTeamAlive = true;
+                        for (const auto& pokemon : player.GetTeam())
+                        {
+                            if (pokemon.getLife() <= 0) 
+                            {
+                                playerTeamAlive = false;
+                                break; // No need to continue if at least one Pokemon is alive
+                            }
+                        }
+                        if (!playerTeamAlive) 
+                        {
+                            cout << "I'm sorry Trainer... it looks like all your Pokemon have fainted. You'll have to come back later and try again.\n";
+                        }
+
                     }
                     else {
                         cout << "Big Guy has already been defeated." << endl;

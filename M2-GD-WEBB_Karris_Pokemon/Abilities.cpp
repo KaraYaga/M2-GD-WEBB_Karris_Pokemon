@@ -26,7 +26,3 @@ string Ability::GetDescription()
 {
     return mDescription;
 }
-int Ability::doDamage() 
-{
-    pokemon.mLife - mDamage;
-}

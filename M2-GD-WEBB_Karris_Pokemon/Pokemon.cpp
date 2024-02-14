@@ -41,9 +41,10 @@ int Pokemon::getLevel() { return mLevel; }
 int Pokemon::getLife() { return mLife; }
 
 //TAKE DAMAGE
-int takeDamage()
+int takeDamage(int damage) 
 {
-   int life - Ability.mDamage;
+    mLife -= damage;
+    return mLife;
 }
 
 //CHOOSE ABILITIES FOR POKEMON
@@ -99,6 +100,16 @@ void Pokemon::chooseAbilities() {
     };
 
 
+}
+
+int Pokemon::takeDamage()
+{
+    return 0;
+}
+
+void Pokemon::setInBall(bool value)
+{
+    inBall = value;
 }
 
 //DISPLAY CHOSEN ABILITIES
