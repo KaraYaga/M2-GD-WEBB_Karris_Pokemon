@@ -1,3 +1,5 @@
 ﻿  M2-GD-WEBB_Karris_Pokemon.cpp
-C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\M2-GD-WEBB_Karris_Pokemon\Pokemon.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  M2-GD-WEBB_Karris_Pokemon.vcxproj -> C:\Users\karris.webb\M2-GD-WEBB_Karris_Pokemon\x64\Debug\M2-GD-WEBB_Karris_Pokemon.exe
+  Pokemon.cpp
+  Trainer.cpp
+  Generating Code...
+  M2-GD-WEBB_Karris_Pokemon.vcxproj -> D:\Professional\M2-GD-WEBB_Karris_Pokemon\x64\Debug\M2-GD-WEBB_Karris_Pokemon.exe

@@ -1,6 +1,7 @@
 #include "Pokemon.h"
 #include <iostream>
 #include <vector>
+
 //LEVEL 1 CUSTOM VALUES
 Pokemon::Pokemon(string name, string description, PokemonTypes pokeType)
 {
@@ -40,9 +41,6 @@ PokemonTypes Pokemon::getPokemonType() { return mPokemonType; }
 int Pokemon::getLevel() { return mLevel; }
 int Pokemon::getLife() { return mLife; }
 
-
-
-
 //CHOOSE ABILITIES FOR POKEMON
 void Pokemon::chooseAbilities() {
     vector<Ability> allAbilities = 
@@ -68,32 +66,29 @@ void Pokemon::chooseAbilities() {
 
     std::cout << "Please choose your Pokemon's four Abilities! Keep in mind, the Lower in the list, the Higher the power and the fewer uses it has before it must rest...maybe!\nHere are all available ones :\n";
 
-    for (int i = 0; i < allAbilities.size(); i++)
-    {
-        std::cout << "#" << (i + 1) << " : " << allAbilities[i].GetName()<<" : "<<allAbilities[i].GetDescription() << endl;
+    for (int i = 0; i < allAbilities.size(); i++) {
+        std::cout << "#" << (i + 1) << " : " << allAbilities[i].GetName() << " : " << allAbilities[i].GetDescription() << endl;
     }
 
-    for (int i = 0; i < 4; i++) 
-    {
+    for (int i = 0; i < 4; i++) {
         std::cout << "Enter the number corresponding to the type : ";
-
         int choice;
         std::cin >> choice;
 
         // Validate user input
         while (choice < 1 || choice > allAbilities.size()) {
-            std::cout << "Invalid choice. Please enter a number between 1 and "<<allAbilities.size() <<" : ";
+            std::cout << "Invalid choice. Please enter a number between 1 and " << allAbilities.size() << " : ";
             std::cin >> choice;
         }
 
         // Check if there's room to ADD ABILITY
         for (int i = 0; i < 4; ++i) {
             if (mAbility[i].GetName() == "Default") {
-                mAbility[i] = allAbilities[choice-1];
+                mAbility[i] = allAbilities[choice - 1];
                 break;
             }
         }
-    };
+    }
 }
 
 //TAKE DAMAGE
@@ -139,3 +134,41 @@ void Pokemon::UseAbilityAgainst(int ability, Pokemon& target)
     cout << target.getLife() << " is what remains of their health!";
 }
 
+// WILD POKEMON
+Pokemon::Pokemon(string name, string description, int mLife, int mLevel)
+{
+    mName = name;
+    mDescription = description;
+    this->mLife = mLife;
+    this->mLevel = mLevel;
+}
+
+// GENERATE A WILD POKEMON
+void Pokemon::GenerateRandomWildPokemon()
+{
+    // Define a list of wild Pokémon species
+    vector<Pokemon> wildPokemonList = {
+        Pokemon("Frutiger", "What a sweet little bubble!", PokemonTypes::DEFAULT, 20),
+        Pokemon("Orion", "It's said you can see constellations in its eyes.", PokemonTypes::DEFAULT, 20),
+        Pokemon("Aero", "A plant that looks like it's made of glass! She sways back and forth.", PokemonTypes::DEFAULT, 20),
+        Pokemon("Flutter", "It's tiny wings can barely hold up its huge body!", PokemonTypes::DEFAULT, 30),
+        Pokemon("Twilight", "You can only fully see this Pokemon when the sun is setting! Otherwise, it's a mist...", PokemonTypes::DEFAULT, 30),
+        Pokemon("Pinkamina", "One of the funniest Pokemon around! Be careful her laughter is contagious, and you can never stop!", PokemonTypes::DEFAULT, 35),
+        Pokemon("Grim", "He may look sad but that's just because bones can't show emotions, he's actually quite happy!", PokemonTypes::DEFAULT, 35),
+        Pokemon("Glorbo", "Glorbo can absolve you of your sins.", PokemonTypes::DEFAULT, 40),
+        Pokemon("Etn", "Etn is the sweetest pokemon there is! Etn is our personal favorite, and is always registered as Number 1!", PokemonTypes::DEFAULT, 45),
+    };
+
+    // Random choice from the list
+    int randomIndex = rand() % wildPokemonList.size();
+
+    // Assign the values to the current instance's member variables
+    mName = wildPokemonList[randomIndex].getPokemonName();
+    mDescription = wildPokemonList[randomIndex].getPokemonDescription();
+    mLife = wildPokemonList[randomIndex].getLife();
+    mLevel = wildPokemonList[randomIndex].getLevel();
+    mPokemonType = wildPokemonList[randomIndex].getPokemonType();
+
+    // Print the result
+    cout << mName << " appears!\n" << mDescription;
+}

@@ -71,7 +71,7 @@ void Trainer::DisplayTeam()
     }
 }
 //ADD POKEMON TO TEAM
-void Trainer::CapturePokemon(Pokemon& captured){
+void Trainer::CapturePokemon(Pokemon& captured) {
     mTeam.push_back(&captured);
 }
 //DISPLAY TEAM / PUSH BACK INTO TEAM
