@@ -14,7 +14,7 @@ private:
 	int mTrainerLife;
 	int mPokeballs;
 
-	vector <Pokemon> mTeam;
+	vector <Pokemon*> mTeam;
 
 	bool canAdventure = getPokeballs() > 0;
 	bool canBattle = !bigGuyDefeated || !bombasticaDefeated || !phoenicaDefeated;
@@ -37,14 +37,14 @@ public:
 	int getMoney();
 	int getLife();
 	int getPokeballs();
-	int usePokeball();
-	int gainPokeball();
-	int winMoney();
+	void usePokeball();
+	void gainPokeball();
+	void winMoney();
 
 	//Pokemon TEAM
-	void SetPokemons(vector<Pokemon> team);
-	void CapturePokemon(Pokemon captured);
+	void SetPokemons(vector<Pokemon*> team);
+	void CapturePokemon(Pokemon& captured);
 	void DisplayTeam();
-	vector <Pokemon> GetTeam();
+	vector <Pokemon*> GetTeam();
 };
 

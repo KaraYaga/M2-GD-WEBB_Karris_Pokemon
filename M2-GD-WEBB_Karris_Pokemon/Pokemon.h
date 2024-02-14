@@ -25,14 +25,16 @@ public:
 	string getPokemonName();
 	string getPokemonDescription();
 	PokemonTypes getPokemonType();
+
 	int getLevel();
 	int getLife();
-	void setInBall(bool value);
-	int takeDamage();
 
+	void setInBall(bool value);
+	void takeDamage(int dmg);
 	void chooseAbilities();
 	void DisplayAbilities();
 	void BattleAbility();
+	void UseAbilityAgainst(int ability, Pokemon& target);
 
 };
 

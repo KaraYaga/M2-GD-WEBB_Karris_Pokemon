@@ -45,25 +45,25 @@ int main()
 
     if (pokeAnswer == "Starter")
     {
-        Pokemon defaultPokemon = Pokemon();
+        Pokemon* defaultPokemon = new Pokemon();
 
-        cout << "Your pokemon " << defaultPokemon.getPokemonName() << " has been registered in the Pokedex! Here is a recap :\n" << defaultPokemon.getPokemonDescription() << "\n\n";
+        cout << "Your pokemon " << defaultPokemon->getPokemonName() << " has been registered in the Pokedex! Here is a recap :\n" << defaultPokemon->getPokemonDescription() << "\n\n";
 
         //CHOOSE ABILITIES
-        cout << "Now let's get " << defaultPokemon.getPokemonName() << " ready to fight!\n";
-        defaultPokemon.chooseAbilities();
-        cout << "Wonderful! Here are " << defaultPokemon.getPokemonName() << "'s 4 Abilities!\n";
-        defaultPokemon.DisplayAbilities();
+        cout << "Now let's get " << defaultPokemon->getPokemonName() << " ready to fight!\n";
+        defaultPokemon->chooseAbilities();
+        cout << "Wonderful! Here are " << defaultPokemon->getPokemonName() << "'s 4 Abilities!\n";
+        defaultPokemon->DisplayAbilities();
 
         if (player.GetTeam().size() < 6)
         {
-            player.CapturePokemon(defaultPokemon);
+            player.CapturePokemon(*defaultPokemon);
         }
     }
 
     if (pokeAnswer == "Custom")
     {
-        Pokemon customPokemon;
+        Pokemon * customPokemon;
 
         cout << "What would you like to name your Pokemon?\n\n";
         string name;
@@ -75,27 +75,26 @@ int main()
 
         PokemonTypes type = choosePokemonType();
 
-        customPokemon = Pokemon(name, description, type);
+        customPokemon = new Pokemon(name, description, type);
 
-        cout << "Your pokemon " << customPokemon.getPokemonName() << "\n" << " has been registered in the Pokedex! Here is a recap :\n" << customPokemon.getPokemonDescription() << "\n\n";
+        cout << "Your pokemon " << customPokemon->getPokemonName() << "\n" << " has been registered in the Pokedex! Here is a recap :\n" << customPokemon->getPokemonDescription() << "\n\n";
 
         //CHOOSE ABILITIES
-        cout << "Now let's get " << customPokemon.getPokemonName() << " ready to fight!\n";
-        customPokemon.chooseAbilities();
-        cout << "Wonderful! Here are " << customPokemon.getPokemonName() << "'s 4 Abilities!\n";
-        customPokemon.DisplayAbilities();
+        cout << "Now let's get " << customPokemon->getPokemonName() << " ready to fight!\n\n";
+        customPokemon->chooseAbilities();
+        cout << "Wonderful! Here are " << customPokemon->getPokemonName() << "'s 4 Abilities!\n\n";
+        customPokemon->DisplayAbilities();
 
         if (player.GetTeam().size() < 6)
         {
-            player.CapturePokemon(customPokemon);
+            player.CapturePokemon(*customPokemon);
         }
 
     }
 
     cout << "Now that we have registered you and your Pokemon you are set to battle other Trainers and their Pokemon!\n\nEvery Trainer may have up to 6 Pokemon in their team so, we have provided you with 5 standard issue Pokeballs to be able to catch wild ones!\nPlease respect the Pokemon Nature and Health Preservation Act when catching wild Pokemon, and if your Pokemon become injured in battle you can let them rest, give them medicine, or come back here for medical treatment.\n\nTake good care of your Pokemon, and don't forget to visit from time to time!\n\n";
- 
 
- //ADVENTURING
+    //ADVENTURING BOOLS
     bool canAdventure = true;
     bool canBattle = true;
 
@@ -106,27 +105,36 @@ int main()
 
     //DEFINING ENEMY TRAINERS
     Trainer bigGuy("Big", "Guy");
-    bigGuy.SetPokemons(vector<Pokemon>{Pokemon("Snorlax", "Tired...", PokemonTypes::FAIRY, 30), Pokemon("Beebo", "A weird Bee thing.", PokemonTypes::FLYING, 30), Pokemon("Harper", "A cute bunny that likes to play music.", PokemonTypes::FAIRY, 30)});
+    vector<Pokemon*> bigGuyPokemons = vector<Pokemon*>{
+        new Pokemon("Snorlax", "Tired...", PokemonTypes::FAIRY, 30), 
+        new Pokemon("Beebo", "A weird Bee thing.", PokemonTypes::FLYING, 30),
+        new Pokemon("Harper", "A cute bunny that likes to play music.", PokemonTypes::FAIRY, 30)};
 
-    Trainer bombastica("Bombastica", "The Bomb");
-    bombastica.SetPokemons(vector<Pokemon>{Pokemon("Terry", "He's just a little guy!", PokemonTypes::FAIRY, 30), Pokemon("Rankor", "He's angry! He's red! He's Rankor!", PokemonTypes::DRAGON, 35), Pokemon("Bubalo", "A giant bubble that will explode at any momet!", PokemonTypes::POISON, 35), Pokemon("Marnimar", "A weird set of teeth...", PokemonTypes::GHOST, 40)});
+    bigGuy.SetPokemons(bigGuyPokemons);
 
-    Trainer phoenica("Phoenica", "La Phoenix");
-    phoenica.SetPokemons(vector<Pokemon>{Pokemon("Yoba", "A fallen god, consumed by the Earth.", PokemonTypes::PLANT, 40), Pokemon("Boba", "A pair of strange black balls that stare at you.", PokemonTypes::WATER, 40), Pokemon("Soba", "A... noodle bowl?", PokemonTypes::FAIRY, 45), Pokemon("Phoenix", "The rising sun, the dying ash, your proclaimed DOOM.", PokemonTypes::FLYING, 50)});
+    //Trainer bombastica("Bombastica", "The Bomb");
+    //bombastica.SetPokemons(vector<Pokemon>{Pokemon("Terry", "He's just a little guy!", PokemonTypes::FAIRY, 30), Pokemon("Rankor", "He's angry! He's red! He's Rankor!", PokemonTypes::DRAGON, 35), Pokemon("Bubalo", "A giant bubble that will explode at any momet!", PokemonTypes::POISON, 35), Pokemon("Marnimar", "A weird set of teeth...", PokemonTypes::GHOST, 40)});
 
+    //Trainer phoenica("Phoenica", "La Phoenix");
+    //phoenica.SetPokemons(vector<Pokemon>{Pokemon("Yoba", "A fallen god, consumed by the Earth.", PokemonTypes::PLANT, 40), Pokemon("Boba", "A pair of strange black balls that stare at you.", PokemonTypes::WATER, 40), Pokemon("Soba", "A... noodle bowl?", PokemonTypes::FAIRY, 45), Pokemon("Phoenix", "The rising sun, the dying ash, your proclaimed DOOM.", PokemonTypes::FLYING, 50)});
+
+    //ADVENTURE OPTIONS
     while (canAdventure || canBattle) {
-        if (canAdventure) {
-            cout << "What would you like to do " << firstname << "? You can challenge Wild Pokemon to try and catch them using your Pokeballs, or fight another Trainer?\n\n(Wild, Trainer)";
+        if (canAdventure) 
+        {
+            cout << "What would you like to do " << firstname << "? You can challenge Wild Pokemon to try and catch them using your Pokeballs, or fight another Trainer?\n\n(Wild, Trainer)\n\n";
             string action;
+            cin.clear();
             getline(cin, action);
 
             // WILD Pokemon HUNTING
-            if (action == "Wild") {
+            if (action == "Wild") 
+            {
                 cout << "Wonderful! You enter out into the grassy wilds and are surprised by a Pokemon! Would you like to try and catch it?\n\n(Yes / No)\n\n";
                 string trytocatch;
                 cin >> trytocatch;
 
-                if (trytocatch == "Yes") 
+                if (trytocatch == "Yes")
                 {
                     //WildEncounters Instance
                     WildEncounters wildEncounter;
@@ -140,7 +148,7 @@ int main()
                     string catchPokemon;
                     cin >> catchPokemon;
 
-                    if (catchPokemon == "Yes") 
+                    if (catchPokemon == "Yes")
                     {
                         //Add Battle Logic if Smart Enough
                         // Capture the wild Pokémon
@@ -155,63 +163,64 @@ int main()
                         continue; // Go back to beginning of loop
                     }
                 }
-                else 
+                else
                 {
                     continue; // Go back to beginning of loop
                 }
             }
 
             // TRAINER BATTLES
-            if (action == "Trainer") 
+            if (action == "Trainer")
             {
-                cout << "You have chosen to battle a Trainer! There are three within this city, who would you like to battle?\n\n(Big Guy, Bombastica, Phoenica)\n\n";
+                cout << "You have chosen to battle a Trainer! There are three within this city, who would you like to battle?\n\n(Big Guy)\n\n";  //(Bombastica, Phoenica)
                 string fight;
                 getline(cin, fight);
 
                 //FIGHT BIG GUY
-                if (fight == "Big Guy") 
+                if (fight == "Big Guy")
                 {
-                    if (!bigGuyDefeated) 
+                    if (!bigGuyDefeated)
                     {
-                       //Enter Battle
+                        //Enter Battle
                         cout << "Entering the gym you see a child standing in the center,\n'I am Big Guy!!! I will Guy your Big!!!'\n\nChoose which Pokemon you wish to fight with.\n\n";
 
-                       //Choose Pokemon to Fight With
+                        //Choose Pokemon to Fight With
                         player.DisplayTeam();
                         int battlePokemon;
                         cin >> battlePokemon;
-                        Pokemon chosenOne = player.GetTeam()[battlePokemon-1];
-                        chosenOne.setInBall(false);
-                        cout << "You sent out " << chosenOne.getPokemonName() << "!\n\n";
+                        Pokemon* chosenOne = player.GetTeam()[battlePokemon - 1];
+                        chosenOne->setInBall(false);
+                        cout << "You sent out " << chosenOne->getPokemonName() << "!\n\n";
 
-                       //Trainer randomly sends out Pokemon
+                        //Trainer randomly sends out Pokemon
                         int randomIndex = rand() % bigGuy.GetTeam().size();
-                        Pokemon randomPokemon = bigGuy.GetTeam()[randomIndex];
-                        cout << "Big Guy sends out " << randomPokemon.getPokemonName() << "!\n\n";
-                       
-                        while (randomPokemon.getLife() > 0)
+                        Pokemon* randomPokemon = bigGuy.GetTeam()[randomIndex];
+                        cout << "Big Guy sends out " << randomPokemon->getPokemonName() << "!\n\n";
+
+                        while (randomPokemon->getLife() > 0)
                         {
                             //Choose Ability for Fight
                             cout << "Which of " << battlePokemon << "'s abilities do you want to use?";
-                            chosenOne.DisplayAbilities();
-                            int fightAbility;
-                            cin >> fightAbility;
+                            chosenOne->DisplayAbilities();
+                            int abilityChoice;
+                            cin >> abilityChoice;
 
                             //FIGHT
-                            randomPokemon.takeDamage();
-                            cout << fightAbility << " does " << fightAbility.getDamage() << " to " << randomPokemon.getPokemonName() << "!\n\n";
+                            chosenOne->UseAbilityAgainst(abilityChoice - 1, *randomPokemon);
+
 
                         }
 
                         // Check if Big Guy's team is defeated
                         bool bigGuyTeamDefeated = false;
-                        for (const auto& pokemon : bigGuy.GetTeam()) 
+                        for (const auto& pokemon : bigGuy.GetTeam())
                         {
-                            if (randomPokemon.getLife() <= 0) {
+                            if (randomPokemon->getLife() <= 0) {
                                 bigGuyTeamDefeated = true;
                                 break; // No need to continue i-+
+                            }
                         }
-                        if (bigGuyTeamDefeated) 
+                        if (bigGuyTeamDefeated)
                         {
                             // Set bigGuyDefeated to true if the player wins and calculate rewards
                             cout << "You have successfully defeated Big Guy! You've gained a Pokeball and some money!\n\n";
@@ -225,65 +234,70 @@ int main()
                         bool playerTeamAlive = true;
                         for (const auto& pokemon : player.GetTeam())
                         {
-                            if (chosenOne.getLife() <= 0)
+                            if (chosenOne->getLife() <= 0)
                             {
                                 playerTeamAlive = false;
                                 break; // No need to continue if at least one Pokemon is alive
                             }
                         }
-                        if (!playerTeamAlive) 
+                        if (!playerTeamAlive)
                         {
                             cout << "I'm sorry Trainer... it looks like all your Pokemon have fainted. You'll have to come back later and try again.\n";
+                            continue;
                         }
 
+
+
+                        else if (bigGuyDefeated == true)
+                        {
+                            cout << "Big Guy has already been defeated." << endl;
+                            continue; // Go back to the beginning of the loop to choose action again
+                        }
                     }
 
-                    else if (bigGuyDefeated == true)
+                    //FIGHT BOMBASTICA
+                    else if (fight == "Bombastica")
                     {
-                        cout << "Big Guy has already been defeated." << endl;
-                        continue; // Go back to the beginning of the loop to choose action again
+                        if (!bombasticaDefeated)
+                        {
+                            // Battle logic for Bombastica goes here
+                            // Set bombasticaDefeated to true if the player wins
+                            bombasticaDefeated = true;
+                        }
+                        else {
+                            cout << "Bombastica has already been defeated." << endl;
+                            continue; // Go back to the beginning of the loop to choose action again
+                        }
                     }
-                }
 
-                //FIGHT BOMBASTICA
-                else if (fight == "Bombastica") 
-                {
-                    if (!bombasticaDefeated) 
+                    //FIGHT PHOENICA
+                    else if (fight == "Phoenica")
                     {
-                        // Battle logic for Bombastica goes here
-                        // Set bombasticaDefeated to true if the player wins
-                        bombasticaDefeated = true;
-                    }
-                    else {
-                        cout << "Bombastica has already been defeated." << endl;
-                        continue; // Go back to the beginning of the loop to choose action again
-                    }
-                }
-                
-                //FIGHT PHOENICA
-                else if (fight == "Phoenica") 
-                {
-                    if (!phoenicaDefeated) 
-                    {
-                        // Battle logic for Phoenica goes here
-                        // Set phoenicaDefeated to true if the player wins
-                        phoenicaDefeated = true;
-                    }
-                    else 
-                    {
-                        cout << "Phoenica has already been defeated." << endl;
-                        continue; // Go back to the beginning of the loop to choose action again
+                        if (!phoenicaDefeated)
+                        {
+                            // Battle logic for Phoenica goes here
+                            // Set phoenicaDefeated to true if the player wins
+                            phoenicaDefeated = true;
+                        }
+                        else
+                        {
+                            cout << "Phoenica has already been defeated." << endl;
+                            continue; // Go back to the beginning of the loop to choose action again
+                        }
                     }
                 }
             }
-        }
-        else {
-            cout << "You don't have any Pokeballs left to go on an adventure.\n\n";
-            canAdventure = false; // Update the condition to prevent further adventuring
-        }
+            else if (player.getPokeballs() <= 0)
+            {
+                cout << "You don't have any Pokeballs left to go on an adventure.\n\n";
+                canAdventure = false; // Update the condition to prevent further adventuring
+                continue;
+                
+            }
 
-        // Update the condition for trainer battles
-        canBattle = !bigGuyDefeated || !bombasticaDefeated || !phoenicaDefeated;
+            // Update the condition for trainer battles
+            canBattle = !bigGuyDefeated || !bombasticaDefeated || !phoenicaDefeated;
+        }
     }
 
     cout << "You have defeated all the trainers! How impressive " << firstname << ". You're quite the Trainer.\nThank you for Training with us here at FNAF!\nUntil next time!\n\n";

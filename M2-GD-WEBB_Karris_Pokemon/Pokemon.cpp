@@ -40,12 +40,8 @@ PokemonTypes Pokemon::getPokemonType() { return mPokemonType; }
 int Pokemon::getLevel() { return mLevel; }
 int Pokemon::getLife() { return mLife; }
 
-//TAKE DAMAGE
-int takeDamage(int damage) 
-{
-    mLife -= damage;
-    return mLife;
-}
+
+
 
 //CHOOSE ABILITIES FOR POKEMON
 void Pokemon::chooseAbilities() {
@@ -100,9 +96,10 @@ void Pokemon::chooseAbilities() {
     };
 }
 
-int Pokemon::takeDamage()
+//TAKE DAMAGE
+void Pokemon::takeDamage(int dmg)
 {
-    return 0;
+    mLife = mLife - dmg;
 }
 
 void Pokemon::setInBall(bool value)
@@ -133,11 +130,14 @@ void Pokemon::BattleAbility()
         cout << mName << " uses " << battlechoice << "!";
     }
 }
+void Pokemon::UseAbilityAgainst(int ability, Pokemon& target)
+{
+    target.takeDamage(mAbility[ability].getDamage());
+    cout << mAbility[ability].GetName() << " deals " << mAbility[ability].getDamage() << " to " << target.getPokemonName()<<endl;
+    cout << target.getLife() << " is what remains of their health!";
+}
 //USE ABILITY
 void useAbility(int index) 
 {
-    if (index >= 0 && index < allAbilities.size() && Abilities.mUses[index] > 0)
-    {
-        Abilitie.mUses[index]--;
-    }
+    
 }

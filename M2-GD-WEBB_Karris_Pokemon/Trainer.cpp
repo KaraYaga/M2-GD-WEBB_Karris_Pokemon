@@ -54,10 +54,11 @@ void Trainer::setCatchphrase(string newCatchphrase)
 
 int Trainer::getMoney() { return mMoney; }
 int Trainer::getPokeballs() { return mPokeballs; }
-int Trainer::usePokeball() { return mPokeballs - 1; }
-int Trainer::gainPokeball() { return mPokeballs + 1; }
 int Trainer::getLife() { return mTrainerLife; }
-int Trainer::winMoney() { return mMoney + 50; }
+
+void Trainer::usePokeball() { mPokeballs -=  1; }
+void Trainer::gainPokeball() { mPokeballs += 1; }
+void Trainer::winMoney() { mMoney += 50; }
 
 //DISPLAY TEAM TO CHOOSE POKEMON
 void Trainer::DisplayTeam()
@@ -65,20 +66,20 @@ void Trainer::DisplayTeam()
     cout << "Here is your team :\n";
     for (int p = 0; p < mTeam.size(); p++) 
     {
-            cout << "\t* " << (p + 1) << " : " << mTeam[p].getPokemonName() << endl; 
+            cout << "\t* " << (p + 1) << " : " << mTeam[p]->getPokemonName() << endl; 
         
     }
 }
 //ADD POKEMON TO TEAM
-void Trainer::CapturePokemon(Pokemon captured){
-    mTeam.push_back(captured);
+void Trainer::CapturePokemon(Pokemon& captured){
+    mTeam.push_back(&captured);
 }
 //DISPLAY TEAM / PUSH BACK INTO TEAM
-vector <Pokemon> Trainer::GetTeam()
+vector <Pokemon*> Trainer::GetTeam()
 {
     return mTeam;
 }
 //TEAM
-void Trainer::SetPokemons(vector<Pokemon> team) {
+void Trainer::SetPokemons(vector<Pokemon*> team) {
     mTeam = team;
 }
