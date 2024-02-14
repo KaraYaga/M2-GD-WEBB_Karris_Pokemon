@@ -69,5 +69,5 @@ void WildEncounters::GenerateRandomWildPokemon()
     int randomIndex = rand() % wildPokemon.size();
 
     // Assuming you want to print the result, change return type to void
-    std::cout << wildPokemon[randomIndex] << " appears!\n";
+    std::cout << wildPokemon[randomIndex].mName << " appears!\n";
 }

@@ -18,7 +18,7 @@ int main()
     string lastname;
     cin >> lastname;
 
-    cout << "Oh! " << firstname << " you're part of the " << lastname << " family, they're a legacy in the FNAF! Welcome, welcome!\nDid you want to register a new Catchphrase or use your family's?\n\n(New/Family)";
+    cout << "Oh! " << firstname << " you're part of the " << lastname << " family, they're a legacy in the FNAF! Welcome, welcome!\nDid you want to register a new Catchphrase or use your family's?\n\n(New/Family)\n\n";
     string phraseAnswer;
     Trainer player;
     cin >> phraseAnswer;
@@ -93,10 +93,11 @@ int main()
     }
 
     cout << "Now that we have registered you and your Pokemon you are set to battle other Trainers and their Pokemon!\n\nEvery Trainer may have up to 6 Pokemon in their team so, we have provided you with 5 standard issue Pokeballs to be able to catch wild ones!\nPlease respect the Pokemon Nature and Health Preservation Act when catching wild Pokemon, and if your Pokemon become injured in battle you can let them rest, give them medicine, or come back here for medical treatment.\n\nTake good care of your Pokemon, and don't forget to visit from time to time!\n\n";
+ 
 
  //ADVENTURING
-    bool canAdventure = false;
-    bool canBattle = false;
+    bool canAdventure = true;
+    bool canBattle = true;
 
     // Flags to track whether each trainer has been defeated
     bool bigGuyDefeated = false;
@@ -117,11 +118,11 @@ int main()
         if (canAdventure) {
             cout << "What would you like to do " << firstname << "? You can challenge Wild Pokemon to try and catch them using your Pokeballs, or fight another Trainer?\n\n(Wild, Trainer)";
             string action;
-            cin >> action;
+            getline(cin, action);
 
             // WILD Pokemon HUNTING
             if (action == "Wild") {
-                cout << "Wonderful! You enter out into the grassy wilds and are surprised by a Pokemon! Would you like to try and catch it?\n(Yes / No)";
+                cout << "Wonderful! You enter out into the grassy wilds and are surprised by a Pokemon! Would you like to try and catch it?\n\n(Yes / No)\n\n";
                 string trytocatch;
                 cin >> trytocatch;
 
@@ -135,7 +136,7 @@ int main()
 
                     // Display  wild Pokémon
                     cout << "A wild " << wildEncounter.wildName() << " appears!\n";
-                    cout << "Would you like to catch it?\n(Yes / No)";
+                    cout << "Would you like to catch it?\n\n(Yes / No)\n\n";
                     string catchPokemon;
                     cin >> catchPokemon;
 
@@ -163,33 +164,40 @@ int main()
             // TRAINER BATTLES
             if (action == "Trainer") 
             {
-                Trainer Trainer;
-                cout << "You have chosen to battle a Trainer! There are three within this city, who would you like to battle?\n(Big Guy, Bombastica, Phoenica)";
+                cout << "You have chosen to battle a Trainer! There are three within this city, who would you like to battle?\n\n(Big Guy, Bombastica, Phoenica)\n\n";
                 string fight;
-                cin >> fight;
+                getline(cin, fight);
 
                 if (fight == "Big Guy") 
                 {
                     if (!bigGuyDefeated) 
                     {
-                        cout << "Entering the gym you see a child standing in the center,\n'I am Big Guy!!! I will Guy your Big!!!'\nChoose which Pokemon you wish to fight with.";
-                        Trainer.GetTeam();
-                        string battlePokemon;
+                       //Enter Battle
+                        cout << "Entering the gym you see a child standing in the center,\n'I am Big Guy!!! I will Guy your Big!!!'\n\nChoose which Pokemon you wish to fight with.\n\n";
+
+                       //Choose Pokemon to Fight With
+                        player.DisplayTeam();
+                        int battlePokemon;
                         cin >> battlePokemon;
+                        Pokemon chosenOne = player.GetTeam()[battlePokemon-1];
+                        chosenOne.inBall = false;
+                        cout << "You sent out " << chosenOne.getPokemonName() << "!\n\n";
 
-                        cout << "Send out " << battlePokemon << "!";
-
-                        int randomIndex = rand() % bigGuy.SetPokemons().size();
-                        Pokemon randomPokemon = bigGuy.SetPokemons()[randomIndex];
-                        cout << "Big Guy sends out " << randomPokemon.getPokemonName() << "!" << endl;
-
+                       //Trainer randomly sends out Pokemon
+                        int randomIndex = rand() % bigGuy.GetTeam().size();
+                        Pokemon randomPokemon = bigGuy.GetTeam()[randomIndex];
+                        cout << "Big Guy sends out " << randomPokemon.getPokemonName() << "!\n\n";
+                       
+                       //Choose Ability for Fight
                         cout << "Which of " << battlePokemon << "'s abilities do you want to use?";
+                        chosenOne.DisplayAbilities();
 
-                        battlePokemon.BattleAbility();
+                       // battlePokemon.BattleAbility();
 
                       
                         // Set bigGuyDefeated to true if the player wins
                         bigGuyDefeated = true;
+                        player.gainPokeball();
                     }
                     else {
                         cout << "Big Guy has already been defeated." << endl;
@@ -226,7 +234,7 @@ int main()
             }
         }
         else {
-            cout << "You don't have any Pokeballs left to go on an adventure." << endl;
+            cout << "You don't have any Pokeballs left to go on an adventure.\n\n";
             canAdventure = false; // Update the condition to prevent further adventuring
         }
 
@@ -234,7 +242,7 @@ int main()
         canBattle = !bigGuyDefeated || !bombasticaDefeated || !phoenicaDefeated;
     }
 
-    cout << "You have defeated all the trainers! How impressive " << firstname << ". You've quite the Trainer.\nThank you for Training with us here at FNAF!\nUntil next time!" << endl;
+    cout << "You have defeated all the trainers! How impressive " << firstname << ". You're quite the Trainer.\nThank you for Training with us here at FNAF!\nUntil next time!\n\n";
 
     return 0;
 }

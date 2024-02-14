@@ -15,6 +15,7 @@ private:
 	int mLevel;
 
 	bool inBall;
+	bool fainted;
 
 public:
 	Pokemon(string mName, string mDescription, PokemonTypes pokeType); //CUSTOM

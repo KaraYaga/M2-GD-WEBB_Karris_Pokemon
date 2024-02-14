@@ -38,11 +38,13 @@ public:
 	int getLife();
 	int getPokeballs();
 	int usePokeball();
+	int gainPokeball();
+	int winMoney();
 
 	//Pokemon TEAM
 	void SetPokemons(vector<Pokemon> team);
 	void CapturePokemon(Pokemon captured);
-
+	void DisplayTeam();
 	vector <Pokemon> GetTeam();
 };
 
