@@ -1,5 +1,6 @@
 #pragma once
 #pragma once
+#include <iostream>
 #include "PokemonTypes.h"
 #include "Abilities.h"
 #include <vector>

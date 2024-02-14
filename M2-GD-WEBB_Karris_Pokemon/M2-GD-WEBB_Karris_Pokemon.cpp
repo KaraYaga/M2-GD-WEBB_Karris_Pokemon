@@ -153,8 +153,6 @@ int main()
                     {
                         continue; // Go back to beginning of loop
                     }
-
-                    // Additional logic for battling the wild Pokemon goes here
                 }
                 else 
                 {
@@ -162,15 +160,34 @@ int main()
                 }
             }
 
-            // TRAINER BATTLE
-            if (action == "Trainer") {
+            // TRAINER BATTLES
+            if (action == "Trainer") 
+            {
+                Trainer Trainer;
                 cout << "You have chosen to battle a Trainer! There are three within this city, who would you like to battle?\n(Big Guy, Bombastica, Phoenica)";
                 string fight;
                 cin >> fight;
 
-                if (fight == "Big Guy") {
-                    if (!bigGuyDefeated) {
-                        // Battle logic for Big Guy goes here
+                if (fight == "Big Guy") 
+                {
+                    if (!bigGuyDefeated) 
+                    {
+                        cout << "Entering the gym you see a child standing in the center,\n'I am Big Guy!!! I will Guy your Big!!!'\nChoose which Pokemon you wish to fight with.";
+                        Trainer.GetTeam();
+                        string battlePokemon;
+                        cin >> battlePokemon;
+
+                        cout << "Send out " << battlePokemon << "!";
+
+                        int randomIndex = rand() % bigGuy.SetPokemons().size();
+                        Pokemon randomPokemon = bigGuy.SetPokemons()[randomIndex];
+                        cout << "Big Guy sends out " << randomPokemon.getPokemonName() << "!" << endl;
+
+                        cout << "Which of " << battlePokemon << "'s abilities do you want to use?";
+
+                        battlePokemon.BattleAbility();
+
+                      
                         // Set bigGuyDefeated to true if the player wins
                         bigGuyDefeated = true;
                     }
@@ -179,8 +196,10 @@ int main()
                         continue; // Go back to the beginning of the loop to choose action again
                     }
                 }
-                else if (fight == "Bombastica") {
-                    if (!bombasticaDefeated) {
+                else if (fight == "Bombastica") 
+                {
+                    if (!bombasticaDefeated) 
+                    {
                         // Battle logic for Bombastica goes here
                         // Set bombasticaDefeated to true if the player wins
                         bombasticaDefeated = true;
@@ -190,13 +209,16 @@ int main()
                         continue; // Go back to the beginning of the loop to choose action again
                     }
                 }
-                else if (fight == "Phoenica") {
-                    if (!phoenicaDefeated) {
+                else if (fight == "Phoenica") 
+                {
+                    if (!phoenicaDefeated) 
+                    {
                         // Battle logic for Phoenica goes here
                         // Set phoenicaDefeated to true if the player wins
                         phoenicaDefeated = true;
                     }
-                    else {
+                    else 
+                    {
                         cout << "Phoenica has already been defeated." << endl;
                         continue; // Go back to the beginning of the loop to choose action again
                     }

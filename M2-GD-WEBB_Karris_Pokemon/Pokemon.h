@@ -30,6 +30,7 @@ public:
 
 	void chooseAbilities();
 	void DisplayAbilities();
+	void BattleAbility();
 
 };
 

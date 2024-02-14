@@ -42,7 +42,8 @@ int Pokemon::getLife() { return mLife; }
 
 //CHOOSE ABILITIES FOR POKEMON
 void Pokemon::chooseAbilities() {
-    vector<Ability> allAbilities = {
+    vector<Ability> allAbilities = 
+    {
         Ability("Smash", "Bludgeon your enemy with brute force!", 5, 3),
         Ability("Slash", "Lash out at your enemy with sharpened skill!", 5, 3),
         Ability("Spit", "Spit on your enemy, blinding them and burning their skin!", 5, 3),
@@ -100,5 +101,20 @@ void Pokemon::DisplayAbilities()
     for (int i = 0; i < 4; i++) 
     {
         cout << mAbility[i].GetName() << endl;
+    }
+}
+
+//CHOOSE FROM FOUR ABILITIES FOR BATTLE
+void Pokemon::BattleAbility()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        cout << mAbility[i].GetName() << endl;
+        std::cout << "Enter the number of the Ability you wish to use : ";
+
+        int battlechoice;
+        std::cin >> battlechoice;
+
+        cout << mName << " uses " << battlechoice << "!";
     }
 }
